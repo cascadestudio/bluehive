@@ -24,14 +24,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" className={`h-full ${nunitoSans.variable} ${robotoMono.variable}`}>
-      <body
-        className="h-full m-0 text-white bg-black antialiased"
-        style={{
-          fontFamily: 'var(--base-text-font-family)',
-          fontSize: 'var(--base-text-font-size)',
-          fontWeight: 'var(--base-text-font-weight)',
-        }}
-      >
+      <body className="h-full m-0 font-base-text antialiased">
         <main className="h-full">{children}</main>
       </body>
     </html>
