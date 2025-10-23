@@ -72,7 +72,7 @@ export const Projects: CollectionConfig = {
         },
       ],
       defaultValue: 'none',
-      validate: async (value, { data, req }) => {
+      validate: async (value: any, { data, req }: { data: any; req: any }) => {
         // If value is 'none', it's always valid
         if (value === 'none') {
           return true

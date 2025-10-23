@@ -40,7 +40,7 @@ export default async function HomePage() {
     <div>
       <Header />
       <HeroSection />
-      <div className="flex flex-col items-center justify-center grow">
+      <div className="flex flex-col items-center justify-center grow gap-5 px-8">
         <SelectedProjects projects={projects} />
       </div>
     </div>
