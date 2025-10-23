@@ -46,6 +46,36 @@ export const Projects: CollectionConfig = {
         description: 'Project categories',
       },
     },
+    {
+      name: 'selectedProject',
+      type: 'select',
+      options: [
+        {
+          label: 'None',
+          value: 'none',
+        },
+        {
+          label: '1',
+          value: '1',
+        },
+        {
+          label: '2',
+          value: '2',
+        },
+        {
+          label: '3',
+          value: '3',
+        },
+        {
+          label: '4',
+          value: '4',
+        },
+      ],
+      defaultValue: 'none',
+      admin: {
+        description: 'Select project display order on home page (1-4)',
+      },
+    },
   ],
   timestamps: true, // Adds createdAt and updatedAt fields
 }

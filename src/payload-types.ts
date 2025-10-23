@@ -182,6 +182,10 @@ export interface Project {
    * Project categories
    */
   categories?: (number | ProjectCategory)[] | null;
+  /**
+   * Select project display order on home page (1-4)
+   */
+  selectedProject?: ('none' | '1' | '2' | '3' | '4') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -316,6 +320,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   description?: T;
   featuredImage?: T;
   categories?: T;
+  selectedProject?: T;
   updatedAt?: T;
   createdAt?: T;
 }
