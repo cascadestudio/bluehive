@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 interface HeroSectionProps {
   // Props can be added here in the future
@@ -7,18 +6,13 @@ interface HeroSectionProps {
 
 export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
   return (
-    <section className="relative w-full h-[813px]">
-      <div className="absolute top-0 left-0 w-full h-[813px]">
-        <Image
-          className="absolute top-0.5 left-0 w-full h-[810px] object-cover"
-          alt="Aerial view of industrial facility with advanced digital technologies"
-          src="/images/hero.jpg"
-          fill
-          priority
-        />
-
-        <div className="absolute top-0 left-0 w-full h-[813px] bg-brand-black opacity-60" />
-      </div>
+    <section
+      className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url(/images/hero.jpg)',
+      }}
+    >
+      <div className="absolute inset-0 bg-brand-black opacity-60" />
 
       <div className="relative z-10 flex items-center justify-center h-full">
         <div className="grid grid-cols-12 gap-5 w-full mx-auto px-8">

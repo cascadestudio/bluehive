@@ -39,7 +39,7 @@ export default async function HomePage() {
   const _fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div>
       <HeroSection />
       <div className="flex flex-col items-center justify-center flex-grow">
         {/* Featured Projects Section */}
