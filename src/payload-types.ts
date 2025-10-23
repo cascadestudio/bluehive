@@ -183,7 +183,7 @@ export interface Project {
    */
   categories?: (number | ProjectCategory)[] | null;
   /**
-   * Select project display order on home page (1-4)
+   * Select project display order on home page (1-4). If a position is already taken, you'll see a validation error.
    */
   selectedProject?: ('none' | '1' | '2' | '3' | '4') | null;
   updatedAt: string;

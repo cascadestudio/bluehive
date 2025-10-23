@@ -72,8 +72,43 @@ export const Projects: CollectionConfig = {
         },
       ],
       defaultValue: 'none',
+      validate: async (value, { data, req }) => {
+        // If value is 'none', it's always valid
+        if (value === 'none') {
+          return true
+        }
+
+        const payload = req.payload
+
+        // Check if this position is already taken by another project
+        const { docs: existingProjects } = await payload.find({
+          collection: 'projects',
+          where: {
+            and: [
+              {
+                selectedProject: {
+                  equals: value,
+                },
+              },
+              {
+                id: {
+                  not_equals: data?.id, // Exclude current project if editing
+                },
+              },
+            ],
+          },
+          limit: 1,
+        })
+
+        if (existingProjects.length > 0) {
+          return `Position ${value} is already assigned to another project. Please choose a different position.`
+        }
+
+        return true
+      },
       admin: {
-        description: 'Select project display order on home page (1-4)',
+        description:
+          "Select project display order on home page (1-4). If a position is already taken, you'll see a validation error.",
       },
     },
   ],
