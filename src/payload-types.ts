@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     projects: Project;
+    'project-categories': ProjectCategory;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'project-categories': ProjectCategoriesSelect<false> | ProjectCategoriesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -169,117 +171,34 @@ export interface Project {
    */
   title: string;
   /**
-   * URL-friendly version of the title
-   */
-  slug: string;
-  /**
-   * Brief project description
+   * Project description
    */
   description: string;
-  /**
-   * Detailed project content
-   */
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  /**
-   * Project status
-   */
-  status: 'draft' | 'published' | 'archived';
   /**
    * Main project image
    */
   featuredImage?: (number | null) | Media;
   /**
-   * Project gallery images
+   * Project categories
    */
-  gallery?:
-    | {
-        image: number | Media;
-        caption?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  categories?: (number | ProjectCategory)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories".
+ */
+export interface ProjectCategory {
+  id: number;
   /**
-   * Technologies used in this project
+   * Category name
    */
-  technologies?:
-    | {
-        name: string;
-        /**
-         * Icon class or URL
-         */
-        icon?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  name: string;
   /**
-   * Project links
+   * URL-friendly version of the name (auto-generated if left blank)
    */
-  links?: {
-    /**
-     * Live project URL
-     */
-    liveUrl?: string | null;
-    /**
-     * GitHub repository URL
-     */
-    githubUrl?: string | null;
-    /**
-     * Demo or preview URL
-     */
-    demoUrl?: string | null;
-  };
-  /**
-   * Client information
-   */
-  client?: {
-    /**
-     * Client or company name
-     */
-    name?: string | null;
-    /**
-     * Client website
-     */
-    website?: string | null;
-  };
-  /**
-   * Project completion date
-   */
-  projectDate?: string | null;
-  /**
-   * Show this project in featured section
-   */
-  featured?: boolean | null;
-  /**
-   * SEO settings
-   */
-  seo?: {
-    /**
-     * SEO meta title
-     */
-    metaTitle?: string | null;
-    /**
-     * SEO meta description
-     */
-    metaDescription?: string | null;
-    /**
-     * SEO keywords (comma separated)
-     */
-    keywords?: string | null;
-  };
+  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -301,6 +220,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'project-categories';
+        value: number | ProjectCategory;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -390,47 +313,19 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
-  slug?: T;
   description?: T;
-  content?: T;
-  status?: T;
   featuredImage?: T;
-  gallery?:
-    | T
-    | {
-        image?: T;
-        caption?: T;
-        id?: T;
-      };
-  technologies?:
-    | T
-    | {
-        name?: T;
-        icon?: T;
-        id?: T;
-      };
-  links?:
-    | T
-    | {
-        liveUrl?: T;
-        githubUrl?: T;
-        demoUrl?: T;
-      };
-  client?:
-    | T
-    | {
-        name?: T;
-        website?: T;
-      };
-  projectDate?: T;
-  featured?: T;
-  seo?:
-    | T
-    | {
-        metaTitle?: T;
-        metaDescription?: T;
-        keywords?: T;
-      };
+  categories?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories_select".
+ */
+export interface ProjectCategoriesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }
