@@ -1,10 +1,16 @@
 import React from 'react'
-import { Nunito_Sans } from 'next/font/google'
+import { Nunito_Sans, Roboto_Mono } from 'next/font/google'
 import './globals.css'
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
   variable: '--font-nunito-sans',
+  display: 'swap',
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  variable: '--font-roboto-mono',
   display: 'swap',
 })
 
@@ -17,8 +23,15 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en" className={`h-full ${nunitoSans.variable}`}>
-      <body className="h-full m-0 font-nunito-sans text-lg leading-8 text-white bg-black antialiased">
+    <html lang="en" className={`h-full ${nunitoSans.variable} ${robotoMono.variable}`}>
+      <body
+        className="h-full m-0 text-white bg-black antialiased"
+        style={{
+          fontFamily: 'var(--base-text-font-family)',
+          fontSize: 'var(--base-text-font-size)',
+          fontWeight: 'var(--base-text-font-weight)',
+        }}
+      >
         <main className="h-full">{children}</main>
       </body>
     </html>

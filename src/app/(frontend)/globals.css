@@ -1,7 +1,135 @@
 @import 'tailwindcss';
 
+:root {
+  --background: #ffffff;
+  --foreground: #1e1e1e;
+  --black: #1e1e1e;
+  --blue: #186dac;
+
+  /* Figma Design System Variables */
+  --base-text-font-family: 'Nunito Sans', Helvetica;
+  --base-text-font-size: 16px;
+  --base-text-font-style: normal;
+  --base-text-font-weight: 500;
+  --base-text-letter-spacing: 0px;
+  --base-text-line-height: normal;
+  --brand-black: #1e1e1e;
+  --brand-blue: rgba(24, 109, 172, 1);
+  --brand-dark-blue: rgba(34, 65, 128, 1);
+  --card-title-font-family: 'Nunito Sans', Helvetica;
+  --card-title-font-size: 20px;
+  --card-title-font-style: normal;
+  --card-title-font-weight: 700;
+  --card-title-letter-spacing: 0px;
+  --card-title-line-height: normal;
+  --cta-font-family: 'Nunito Sans', Helvetica;
+  --cta-font-size: 16px;
+  --cta-font-style: normal;
+  --cta-font-weight: 600;
+  --cta-letter-spacing: 0px;
+  --cta-line-height: normal;
+  --grey: rgba(107, 114, 128, 1);
+  --mobile-card-title-font-family: 'Nunito Sans', Helvetica;
+  --mobile-card-title-font-size: 14px;
+  --mobile-card-title-font-style: normal;
+  --mobile-card-title-font-weight: 700;
+  --mobile-card-title-letter-spacing: 0px;
+  --mobile-card-title-line-height: normal;
+  --mobile-cta-font-family: 'Nunito Sans', Helvetica;
+  --mobile-cta-font-size: 14px;
+  --mobile-cta-font-style: normal;
+  --mobile-cta-font-weight: 600;
+  --mobile-cta-letter-spacing: 0px;
+  --mobile-cta-line-height: normal;
+  --mobile-tag-font-family: 'Roboto Mono', Helvetica;
+  --mobile-tag-font-size: 12px;
+  --mobile-tag-font-style: normal;
+  --mobile-tag-font-weight: 400;
+  --mobile-tag-letter-spacing: 0px;
+  --mobile-tag-line-height: normal;
+  --mobile-text-font-family: 'Nunito Sans', Helvetica;
+  --mobile-text-font-size: 14px;
+  --mobile-text-font-style: normal;
+  --mobile-text-font-weight: 600;
+  --mobile-text-letter-spacing: 0px;
+  --mobile-text-line-height: normal;
+  --section-intro-text-font-family: 'Nunito Sans', Helvetica;
+  --section-intro-text-font-size: 20px;
+  --section-intro-text-font-style: normal;
+  --section-intro-text-font-weight: 500;
+  --section-intro-text-letter-spacing: 0px;
+  --section-intro-text-line-height: normal;
+  --section-title-font-family: 'Nunito Sans', Helvetica;
+  --section-title-font-size: 36px;
+  --section-title-font-style: normal;
+  --section-title-font-weight: 800;
+  --section-title-letter-spacing: 0px;
+  --section-title-line-height: normal;
+  --services-title-font-family: 'Nunito Sans', Helvetica;
+  --services-title-font-size: 20px;
+  --services-title-font-style: normal;
+  --services-title-font-weight: 700;
+  --services-title-letter-spacing: 0px;
+  --services-title-line-height: normal;
+  --small-text-font-family: 'Nunito Sans', Helvetica;
+  --small-text-font-size: 14px;
+  --small-text-font-style: normal;
+  --small-text-font-weight: 600;
+  --small-text-letter-spacing: 0px;
+  --small-text-line-height: normal;
+  --tag-font-family: 'Roboto Mono', Helvetica;
+  --tag-font-size: 12px;
+  --tag-font-style: normal;
+  --tag-font-weight: 400;
+  --tag-letter-spacing: 0px;
+  --tag-line-height: normal;
+  --white: rgba(255, 255, 255, 1);
+}
+
 @theme {
   --color-brand-black: #000000;
   --color-brand-blue: #0066cc;
   --font-family-nunito-sans: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-family-roboto-mono: var(--font-roboto-mono), ui-monospace, monospace;
+}
+
+/* Design System Utility Classes */
+.font-base-text {
+  font-family: var(--base-text-font-family);
+  font-size: var(--base-text-font-size);
+  font-weight: var(--base-text-font-weight);
+  letter-spacing: var(--base-text-letter-spacing);
+  line-height: var(--base-text-line-height);
+}
+
+.font-card-title {
+  font-family: var(--card-title-font-family);
+  font-size: var(--card-title-font-size);
+  font-weight: var(--card-title-font-weight);
+  letter-spacing: var(--card-title-letter-spacing);
+  line-height: var(--card-title-line-height);
+}
+
+.font-cta {
+  font-family: var(--cta-font-family);
+  font-size: var(--cta-font-size);
+  font-weight: var(--cta-font-weight);
+  letter-spacing: var(--cta-letter-spacing);
+  line-height: var(--cta-line-height);
+}
+
+.font-section-title {
+  font-family: var(--section-title-font-family);
+  font-size: var(--section-title-font-size);
+  font-weight: var(--section-title-font-weight);
+  letter-spacing: var(--section-title-letter-spacing);
+  line-height: var(--section-title-line-height);
+}
+
+.font-tag {
+  font-family: var(--tag-font-family);
+  font-size: var(--tag-font-size);
+  font-weight: var(--tag-font-weight);
+  letter-spacing: var(--tag-letter-spacing);
+  line-height: var(--tag-line-height);
 }
