@@ -6,8 +6,7 @@ import { fileURLToPath } from 'url'
 import type { Project as _Project } from '@/payload-types'
 
 import config from '@/payload.config'
-import { HeroSection } from '@/components/HeroSection'
-import './styles.css'
+import { HeroSection } from '@/app/components/HeroSection'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -39,7 +38,7 @@ export default async function HomePage() {
   const _fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <div>
+    <div className="bg-brand-black">
       <HeroSection />
       <div className="flex flex-col items-center justify-center flex-grow">
         {/* Featured Projects Section */}
