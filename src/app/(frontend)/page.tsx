@@ -3,16 +3,17 @@ import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
 import { fileURLToPath } from 'url'
-import type { Project, ProjectCategory, Media } from '@/payload-types'
+import type { Project as _Project } from '@/payload-types'
 
 import config from '@/payload.config'
+import { HeroSection } from '@/components/HeroSection'
 import './styles.css'
 
 export default async function HomePage() {
   const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+  const { user: _user } = await payload.auth({ headers })
 
   // Fetch selected projects (1-4) with their categories and featured images
   const { docs: allProjects } = await payload.find({
@@ -35,35 +36,44 @@ export default async function HomePage() {
     })
     .slice(0, 4) // Take only the first 4 projects
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+  const _fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <div className="home">
-      <div className="content">
+    <div className="min-h-screen bg-black text-white">
+      <HeroSection />
+      <div className="flex flex-col items-center justify-center flex-grow">
         {/* Featured Projects Section */}
-        <section className="featured-projects">
-          <h2>Featured Projects</h2>
-          <div className="projects-grid">
+        <section className="my-16 w-full max-w-6xl px-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-10 leading-tight">
+            Featured Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="project-card">
+              <div
+                key={project.id}
+                className="bg-gray-800 rounded-xl overflow-hidden border border-gray-600 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30"
+              >
                 {project.featuredImage && typeof project.featuredImage === 'object' && (
-                  <div className="project-image">
+                  <div className="w-full h-48 overflow-hidden">
                     <Image
                       src={project.featuredImage.url || ''}
                       alt={project.title}
                       width={300}
                       height={200}
-                      style={{ objectFit: 'cover' }}
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 )}
-                <div className="project-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
+                <div className="p-6">
+                  <h3 className="text-2xl font-semibold mb-3 leading-7">{project.title}</h3>
+                  <p className="text-base leading-6 mb-4 text-gray-300">{project.description}</p>
                   {project.categories && project.categories.length > 0 && (
-                    <div className="project-categories">
+                    <div className="flex flex-wrap gap-2">
                       {project.categories.map((category, index) => (
-                        <span key={index} className="category-tag">
+                        <span
+                          key={index}
+                          className="bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm border border-gray-500"
+                        >
                           {typeof category === 'object' ? category.name : category}
                         </span>
                       ))}
