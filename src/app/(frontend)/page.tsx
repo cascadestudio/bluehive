@@ -7,6 +7,7 @@ import type { Project as _Project } from '@/payload-types'
 
 import config from '@/payload.config'
 import { HeroSection } from '@/app/components/HeroSection'
+import { Header } from '@/app/components/Header'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -39,8 +40,9 @@ export default async function HomePage() {
 
   return (
     <div className="bg-brand-black">
+      <Header />
       <HeroSection />
-      <div className="flex flex-col items-center justify-center flex-grow">
+      <div className="flex flex-col items-center justify-center grow">
         {/* Featured Projects Section */}
         <section className="my-16 w-full max-w-6xl px-4">
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-10 leading-tight">
