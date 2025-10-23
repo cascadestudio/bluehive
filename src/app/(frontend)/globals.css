@@ -87,8 +87,8 @@
 }
 
 @theme {
-  --color-brand-black: #000000;
-  --color-brand-blue: #0066cc;
+  --color-brand-black: #1e1e1e;
+  --color-brand-blue: rgba(24, 109, 172, 1); /* Use consistent value */
   --font-family-nunito-sans: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif;
   --font-family-roboto-mono: var(--font-roboto-mono), ui-monospace, monospace;
 }
@@ -100,6 +100,7 @@
   font-weight: var(--base-text-font-weight);
   letter-spacing: var(--base-text-letter-spacing);
   line-height: var(--base-text-line-height);
+  color: var(--brand-black);
 }
 
 .font-card-title {

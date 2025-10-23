@@ -18,7 +18,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
           <h2 className="text-brand-blue text-4xl font-extrabold">SELECTED PROJECTS</h2>
         </div>
 
-        <p className="relative w-full md:w-[680px] font-section-intro-text font-[number:var(--section-intro-text-font-weight)] text-[#1e1e1e] text-[length:var(--section-intro-text-font-size)] tracking-[var(--section-intro-text-letter-spacing)] leading-[var(--section-intro-text-line-height)] [font-style:var(--section-intro-text-font-style)]">
+        <p className="relative w-full md:w-[680px] font-section-intro-text text-[#1e1e1e]">
           Here are examples of how we turn complex industrial challenges into reliable, data-driven
           solutions, built in close collaboration with our clients.
         </p>
@@ -53,10 +53,10 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
                   <div
                     className={`w-full absolute h-[20.25%] top-0 left-0 ${
                       index === 0
-                        ? 'font-mono font-normal text-brand-blue text-xs text-center tracking-[0] leading-[normal]'
+                        ? 'font-mono font-normal text-brand-blue text-xs text-center'
                         : index === 1
-                          ? 'font-mobile-tag font-[number:var(--mobile-tag-font-weight)] text-brand-blue text-[length:var(--mobile-tag-font-size)] tracking-[var(--mobile-tag-letter-spacing)] leading-[var(--mobile-tag-line-height)] [font-style:var(--mobile-tag-font-style)]'
-                          : 'font-mono font-normal text-brand-blue text-xs tracking-[0] leading-[normal]'
+                          ? 'font-mobile-tag text-brand-blue'
+                          : 'font-mono font-normal text-brand-blue text-xs'
                     } ${index === 2 ? 'text-center' : ''}`}
                   >
                     {project.categories && project.categories.length > 0
@@ -67,13 +67,13 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
                   </div>
 
                   <h3
-                    className={`absolute w-full h-[68.35%] top-[31.65%] left-0 flex items-center justify-center font-card-title font-[number:var(--card-title-font-weight)] text-[#1e1e1e] text-[length:var(--card-title-font-size)] tracking-[var(--card-title-letter-spacing)] leading-[var(--card-title-line-height)] [font-style:var(--card-title-font-style)]`}
+                    className={`absolute w-full h-[68.35%] top-[31.65%] left-0 flex items-center justify-center font-card-title text-[#1e1e1e]`}
                   >
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="relative self-stretch font-base-text font-[number:var(--base-text-font-weight)] text-[#1e1e1e] text-[length:var(--base-text-font-size)] tracking-[var(--base-text-letter-spacing)] leading-[var(--base-text-line-height)] [font-style:var(--base-text-font-style)]">
+                <p className="relative self-stretch font-base-text text-[#1e1e1e]">
                   {project.description}
                 </p>
               </div>
