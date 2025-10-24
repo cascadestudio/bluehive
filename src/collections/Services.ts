@@ -34,15 +34,15 @@ export const Services: CollectionConfig = {
       type: 'array',
       required: false,
       admin: {
-        description: 'List of use case paragraphs for this service',
+        description: 'List of use cases for this service',
       },
       fields: [
         {
-          name: 'paragraph',
+          name: 'useCase',
           type: 'textarea',
           required: true,
           admin: {
-            description: 'Use case paragraph',
+            description: 'Use case description',
           },
         },
       ],

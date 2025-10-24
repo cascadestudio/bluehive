@@ -223,14 +223,14 @@ export interface Service {
    */
   description: string;
   /**
-   * List of use case paragraphs for this service
+   * List of use cases for this service
    */
   useCases?:
     | {
         /**
-         * Use case paragraph
+         * Use case description
          */
-        paragraph: string;
+        useCase: string;
         id?: string | null;
       }[]
     | null;
@@ -379,7 +379,7 @@ export interface ServicesSelect<T extends boolean = true> {
   useCases?:
     | T
     | {
-        paragraph?: T;
+        useCase?: T;
         id?: T;
       };
   updatedAt?: T;
