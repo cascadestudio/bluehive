@@ -20,8 +20,8 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
   }
 
   return (
-    <header className="absolute top-4 z-50  mx-8 h-[79px] py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl">
-      <div className="grid grid-cols-12 gap-5 h-full items-center">
+    <header className="fixed top-4 z-50 px-8 h-[79px] w-full">
+      <div className="py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl grid grid-cols-12 gap-5 h-full items-center">
         <div className="col-span-2 flex items-center justify-center">
           <a
             href="#"
