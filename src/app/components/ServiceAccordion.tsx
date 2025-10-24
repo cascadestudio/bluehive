@@ -38,7 +38,7 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) 
 
             {/* Accordion Content */}
             <div
-              className={`grid-rows-[0fr] grid transition-all duration-500 ease-in-out ${
+              className={`grid-rows-[0fr] grid transition-all duration-400 ease-in-out ${
                 isOpen ? 'grid-rows-[1fr]' : ''
               }`}
             >
@@ -54,6 +54,7 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) 
                           width={service.image.width || 800}
                           height={service.image.height || 600}
                           className="w-full h-auto object-cover"
+                          loading="eager"
                         />
                       </div>
                     )}
