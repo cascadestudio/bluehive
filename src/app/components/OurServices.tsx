@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Service } from '@/payload-types'
 import { ServiceAccordion } from './ServiceAccordion'
+import { SectionHeader } from './SectionHeader'
 
 interface OurServicesProps {
   services: Service[]
@@ -8,11 +9,10 @@ interface OurServicesProps {
 
 export const OurServices: React.FC<OurServicesProps> = ({ services }) => {
   return (
-    <section>
-      <h2 className="font-section-title mb-2">OUR SERVICES</h2>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
-        <div className="space-y-6">
+    <section id="services" className="border-t border-brand-blue pt-4">
+      <SectionHeader title="OUR SERVICES" />
+      <div className="brand-grid mb-8">
+        <div className="space-y-6 col-span-6">
           <p>Our services are guided by three core values:</p>
           <p>
             <b>Innovation</b> – We harness the potential of digital technologies by testing and

@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import type { Project } from '@/payload-types'
+import { SectionHeader } from './SectionHeader'
 
 interface SelectedProjectsProps {
   projects: Project[]
@@ -12,17 +13,11 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
   }
 
   return (
-    <section className="grid grid-cols-12 w-full items-start gap-8 relative flex-[0_0_auto] mt-20">
-      <header className="col-span-12 inline-flex flex-col items-start gap-5 px-0 py-px relative flex-[0_0_auto]">
-        <div className="relative w-full h-[34px]">
-          <h2 className="text-brand-blue text-4xl font-extrabold">SELECTED PROJECTS</h2>
-        </div>
-
-        <p className="relative w-full md:w-[680px] font-section-intro-text">
-          Here are examples of how we turn complex industrial challenges into reliable, data-driven
-          solutions, built in close collaboration with our clients.
-        </p>
-      </header>
+    <section id="projects" className="mt-20">
+      <SectionHeader
+        title="SELECTED PROJECTS"
+        introText="Here are examples of how we turn complex industrial challenges into reliable, data-driven solutions, built in close collaboration with our clients."
+      />
 
       <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative self-stretch w-full flex-[0_0_auto]">
         {projects.map((project, index) => {

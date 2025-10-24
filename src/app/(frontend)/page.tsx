@@ -8,6 +8,7 @@ import { HeroSection } from '@/app/components/HeroSection'
 import { Header } from '@/app/components/Header'
 import { SelectedProjects } from '@/app/components/SelectedProjects'
 import { OurServices } from '@/app/components/OurServices'
+import { About } from '@/app/components/About'
 
 async function getSelectedProjects(): Promise<Project[]> {
   const headers = await getHeaders()
@@ -58,6 +59,7 @@ export default async function HomePage() {
       <div className="flex flex-col grow gap-y-40 px-8">
         <SelectedProjects projects={projects} />
         <OurServices services={services} />
+        <About />
       </div>
     </div>
   )
