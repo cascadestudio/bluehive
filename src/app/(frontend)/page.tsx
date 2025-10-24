@@ -9,6 +9,7 @@ import { Header } from '@/app/components/Header'
 import { SelectedProjects } from '@/app/components/SelectedProjects'
 import { OurServices } from '@/app/components/OurServices'
 import { About } from '@/app/components/About'
+import { Footer } from '@/app/components/Footer'
 
 async function getSelectedProjects(): Promise<Project[]> {
   const headers = await getHeaders()
@@ -61,6 +62,7 @@ export default async function HomePage() {
         <OurServices services={services} />
         <About />
       </div>
+      <Footer />
     </div>
   )
 }
