@@ -18,7 +18,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
           <h2 className="text-brand-blue text-4xl font-extrabold">SELECTED PROJECTS</h2>
         </div>
 
-        <p className="relative w-full md:w-[680px] font-section-intro-text text-[#1e1e1e]">
+        <p className="relative w-full md:w-[680px] font-section-intro-text">
           Here are examples of how we turn complex industrial challenges into reliable, data-driven
           solutions, built in close collaboration with our clients.
         </p>
@@ -33,7 +33,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
 
           return (
             <article key={project.id} className={`flex flex-col w-full items-start gap-4 relative`}>
-              <div className="relative w-full h-[330px] bg-cover bg-[50%_50%] rounded-lg overflow-hidden">
+              <div className="relative w-full h-[330px] bg-cover rounded-lg overflow-hidden">
                 {featuredImage ? (
                   <Image
                     src={featuredImage.url || ''}
@@ -49,33 +49,12 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
               </div>
 
               <div className="flex flex-col items-start gap-5 relative self-stretch w-full flex-[0_0_auto]">
-                <div className={`relative w-full h-[79px]`}>
-                  <div
-                    className={`w-full absolute h-[20.25%] top-0 left-0 ${
-                      index === 0
-                        ? 'font-mono font-normal text-brand-blue text-xs text-center'
-                        : index === 1
-                          ? 'font-mobile-tag text-brand-blue'
-                          : 'font-mono font-normal text-brand-blue text-xs'
-                    } ${index === 2 ? 'text-center' : ''}`}
-                  >
-                    {project.categories && project.categories.length > 0
-                      ? typeof project.categories[0] === 'object'
-                        ? project.categories[0].name
-                        : project.categories[0]
-                      : 'Project'}
-                  </div>
-
-                  <h3
-                    className={`absolute w-full h-[68.35%] top-[31.65%] left-0 flex items-center justify-center font-card-title text-[#1e1e1e]`}
-                  >
-                    {project.title}
-                  </h3>
+                <div className="font-tag text-brand-blue">
+                  {typeof project.categories?.[0] === 'object' ? project.categories[0].name : null}
                 </div>
+                <h3 className="font-card-title">{project.title}</h3>
 
-                <p className="relative self-stretch font-base-text text-[#1e1e1e]">
-                  {project.description}
-                </p>
+                <p className="relative self-stretch font-base-text">{project.description}</p>
               </div>
             </article>
           )
