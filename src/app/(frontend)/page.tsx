@@ -7,6 +7,7 @@ import config from '@/payload.config'
 import { HeroSection } from '@/app/components/HeroSection'
 import { Header } from '@/app/components/Header'
 import { SelectedProjects } from '@/app/components/SelectedProjects'
+import { OurServices } from '@/app/components/OurServices'
 
 async function getSelectedProjects(): Promise<Project[]> {
   const headers = await getHeaders()
@@ -40,8 +41,9 @@ export default async function HomePage() {
     <div>
       <Header />
       <HeroSection />
-      <div className="flex flex-col items-center justify-center grow gap-5 px-8">
+      <div className="flex flex-col items-center justify-center grow gap-y-40 px-8">
         <SelectedProjects projects={projects} />
+        <OurServices />
       </div>
     </div>
   )

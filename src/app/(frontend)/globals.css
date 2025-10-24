@@ -125,6 +125,7 @@
   font-weight: var(--section-title-font-weight);
   letter-spacing: var(--section-title-letter-spacing);
   line-height: var(--section-title-line-height);
+  color: var(--brand-blue);
 }
 
 .font-tag {
