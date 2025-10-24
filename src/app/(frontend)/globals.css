@@ -134,4 +134,6 @@
   font-weight: var(--tag-font-weight);
   letter-spacing: var(--tag-letter-spacing);
   line-height: var(--tag-line-height);
+  color: var(--brand-blue);
+  text-transform: uppercase;
 }

@@ -15,7 +15,7 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) 
   }
 
   return (
-    <div className="w-full space-y-0 border-t border-brand-blue">
+    <div className="space-y-0 border-t border-brand-blue">
       {services.map((service, index) => {
         const isOpen = openIndex === index
 
@@ -63,13 +63,11 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) 
                     {/* Use Cases */}
                     {service.useCases && service.useCases.length > 0 && (
                       <div>
-                        <h4 className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-4">
-                          Use Cases
-                        </h4>
-                        <div className="grid grid-cols-1 gap-4">
+                        <h4 className="font-tag mb-1">Use Cases</h4>
+                        <div className="grid grid-cols-6 gapx-8 gap-y-2 border-t border-brand-blue pt-1">
                           {service.useCases.map((useCase, ucIndex) => (
-                            <div key={ucIndex} className="flex items-start space-x-2">
-                              <span className="text-blue-600 mt-1 shrink-0">→</span>
+                            <div key={ucIndex} className="flex items-start space-x-2 col-span-3">
+                              <span className="text-brand-blue shrink-0">→</span>
                               <p className="text-sm leading-relaxed">
                                 {typeof useCase === 'object' && useCase.useCase
                                   ? useCase.useCase
