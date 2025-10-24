@@ -32,8 +32,8 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
           >
             <Image
               className="relative w-[146.27px] h-[39px] aspect-[3.75]"
-              alt="Company logo"
-              src="/images/logo.svg"
+              alt="BlueHive logo"
+              src="/logos/bluehive.svg"
               width={146}
               height={39}
             />

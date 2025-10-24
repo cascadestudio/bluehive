@@ -1,6 +1,7 @@
 import React from 'react'
 import { PersonCard } from './PersonCard'
 import { SectionHeader } from './SectionHeader'
+import Image from 'next/image'
 
 export const About: React.FC = () => {
   return (
@@ -29,6 +30,26 @@ export const About: React.FC = () => {
 "
             linkedinUrl="https://linkedin.com/in/patrick-zhao"
           />
+        </div>
+        <div className="col-span-3 space-y-4">
+          <h3 className="font-tag text-base! mb-3">Collaborators</h3>
+          <div>
+            <p className="font-bold">Mohammed Amin Belarbi</p>
+            <p className="text-sm">Senior data scientist</p>
+          </div>
+          <div>
+            <p className="font-bold">Alaedinne Hmida </p>
+            <p className="text-sm">Software engineer – Full-stack developper</p>
+          </div>
+          <div>
+            <p className="font-bold">Mohammed Amin Belarbi</p>
+            <p className="text-sm">Technical collaborator – Software and ML</p>
+          </div>
+        </div>
+        <div className="col-span-3 space-y-4">
+          <h3 className="font-tag text-base! mb-3">Partners</h3>
+          <Image src="/logos/arcanite.png" alt="arcanite  " width={140} height={30} />
+          <Image src="/logos/ei3.svg" alt="ei3" width={50} height={40} />
         </div>
       </div>
     </section>
