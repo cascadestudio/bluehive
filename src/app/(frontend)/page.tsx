@@ -1,7 +1,7 @@
 import { headers as getHeaders } from 'next/headers.js'
 import { getPayload } from 'payload'
 import React from 'react'
-import type { Project } from '@/payload-types'
+import type { Project, Service } from '@/payload-types'
 
 import config from '@/payload.config'
 import { HeroSection } from '@/app/components/HeroSection'
@@ -34,16 +34,30 @@ async function getSelectedProjects(): Promise<Project[]> {
     .slice(0, 4) // Take only the first 4 projects
 }
 
+async function getServices(): Promise<Service[]> {
+  const headers = await getHeaders()
+  const payloadConfig = await config
+  const payload = await getPayload({ config: payloadConfig })
+
+  const { docs: services } = await payload.find({
+    collection: 'services',
+    sort: 'createdAt',
+  })
+
+  return services
+}
+
 export default async function HomePage() {
   const projects = await getSelectedProjects()
+  const services = await getServices()
 
   return (
     <div>
       <Header />
       <HeroSection />
-      <div className="flex flex-col items-center justify-center grow gap-y-40 px-8">
+      <div className="flex flex-col grow gap-y-40 px-8">
         <SelectedProjects projects={projects} />
-        <OurServices />
+        <OurServices services={services} />
       </div>
     </div>
   )
