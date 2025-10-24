@@ -33,7 +33,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
 
           return (
             <article key={project.id} className={`flex flex-col w-full items-start gap-4 relative`}>
-              <div className="relative w-full h-[330px] bg-cover rounded-lg overflow-hidden">
+              <div className="relative w-full h-[330px] bg-cover overflow-hidden">
                 {featuredImage ? (
                   <Image
                     src={featuredImage.url || ''}

@@ -30,6 +30,15 @@ export const Services: CollectionConfig = {
       },
     },
     {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+      admin: {
+        description: 'Service image',
+      },
+    },
+    {
       name: 'useCases',
       type: 'array',
       required: false,

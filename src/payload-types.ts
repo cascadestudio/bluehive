@@ -223,6 +223,10 @@ export interface Service {
    */
   description: string;
   /**
+   * Service image
+   */
+  image?: (number | null) | Media;
+  /**
    * List of use cases for this service
    */
   useCases?:
@@ -376,6 +380,7 @@ export interface ProjectCategoriesSelect<T extends boolean = true> {
 export interface ServicesSelect<T extends boolean = true> {
   title?: T;
   description?: T;
+  image?: T;
   useCases?:
     | T
     | {

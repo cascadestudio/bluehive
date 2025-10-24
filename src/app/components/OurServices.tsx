@@ -8,10 +8,10 @@ interface OurServicesProps {
 
 export const OurServices: React.FC<OurServicesProps> = ({ services }) => {
   return (
-    <section className="w-full max-w-7xl">
-      <h2 className="font-section-title mb-8">OUR SERVICES</h2>
+    <section>
+      <h2 className="font-section-title mb-2">OUR SERVICES</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-8">
         <div className="space-y-6">
           <p>Our services are guided by three core values:</p>
           <p>
