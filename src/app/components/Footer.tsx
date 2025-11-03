@@ -2,8 +2,8 @@ import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-brand-blue pt-8 pb-12 px-4 md:px-8 mt-16 md:mt-32">
-      <div className="brand-grid">
+    <footer className="border-t border-brand-blue pt-6 pb-12 mt-16 md:mt-32">
+      <div className="brand-grid gap-y-10! md:gap-y-0!">
         {/* Contact Us */}
         <div className="col-span-12 sm:col-span-6 md:col-span-2">
           <h3 className="font-tag mb-4">Contact Us</h3>

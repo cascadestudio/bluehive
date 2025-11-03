@@ -27,7 +27,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
               : null
 
           return (
-            <article key={project.id} className={`flex flex-col w-full items-start gap-4 relative`}>
+            <article key={project.id} className="flex flex-col items-start gap-4 relative">
               <div className="relative w-full h-[250px] md:h-[330px] bg-cover overflow-hidden">
                 {featuredImage ? (
                   <Image
@@ -43,11 +43,11 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
                 )}
               </div>
 
-              <div className="flex flex-col items-start md:gap-5">
-                <div className="font-tag text-brand-blue mb-1 md:mb-0">
+              <div className="flex flex-col">
+                <div className="font-tag text-brand-blue mb-1 md:mb-2">
                   {typeof project.categories?.[0] === 'object' ? project.categories[0].name : null}
                 </div>
-                <h3 className="font-card-title mb-3 md:mb-0">{project.title}</h3>
+                <h3 className="font-card-title mb-3 md:mb-4">{project.title}</h3>
 
                 <p className="relative self-stretch font-base-text">{project.description}</p>
               </div>

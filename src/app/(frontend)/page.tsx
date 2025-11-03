@@ -61,8 +61,8 @@ export default async function HomePage() {
         <SelectedProjects projects={projects} />
         <OurServices services={services} />
         <About />
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
