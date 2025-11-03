@@ -12,7 +12,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({ title, introText }
 
       {introText && (
         <div className="brand-grid mb-8">
-          <p className="col-span-6 section-intro-text">{introText}</p>
+          <p className="col-span-12 md:col-span-6 section-intro-text">{introText}</p>
         </div>
       )}
     </>

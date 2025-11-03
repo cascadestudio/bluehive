@@ -2,10 +2,10 @@ import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-brand-blue pt-8 pb-12 px-8 mt-32">
+    <footer className="border-t border-brand-blue pt-8 pb-12 px-4 md:px-8 mt-16 md:mt-32">
       <div className="brand-grid">
         {/* Contact Us */}
-        <div className="col-span-2">
+        <div className="col-span-12 sm:col-span-6 md:col-span-2">
           <h3 className="font-tag mb-4">Contact Us</h3>
           <div className="space-y-2 text-sm">
             <p>
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Head Office */}
-        <div className="col-span-3">
+        <div className="col-span-12 sm:col-span-6 md:col-span-3">
           <h3 className="font-tag mb-4">Head Office</h3>
           <address className="text-sm not-italic">
             <a
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Offices */}
-        <div className="col-span-3">
+        <div className="col-span-12 sm:col-span-6 md:col-span-3">
           <h3 className="font-tag mb-4">Offices</h3>
           <address className="text-sm not-italic">
             <a
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Sitemap */}
-        <div className="col-span-2">
+        <div className="col-span-12 sm:col-span-6 md:col-span-2">
           <h3 className="font-tag mb-4">Sitemap</h3>
           <nav className="space-y-2 text-sm">
             <p>
@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Legal */}
-        <div className="col-span-2">
+        <div className="col-span-12 sm:col-span-6 md:col-span-2">
           <h3 className="font-tag mb-4">Legal</h3>
           <div className="text-sm">
             <p>

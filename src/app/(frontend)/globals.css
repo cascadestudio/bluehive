@@ -129,6 +129,24 @@
   color: var(--brand-blue);
 }
 
+@media (max-width: 768px) {
+  .font-section-title {
+    font-size: 28px;
+  }
+  
+  .section-intro-text {
+    font-size: 16px;
+  }
+  
+  .font-card-title {
+    font-size: var(--mobile-card-title-font-size);
+  }
+  
+  .font-base-text {
+    font-size: var(--mobile-text-font-size);
+  }
+}
+
 .section-intro-text {
   font-family: var(--section-intro-text-font-family);
   font-size: var(--section-intro-text-font-size);
@@ -151,7 +169,13 @@
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 2rem;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .brand-grid {
+    gap: 2rem;
+  }
 }
 
 .section-border {

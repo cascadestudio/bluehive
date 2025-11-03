@@ -15,8 +15,8 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'Bluehive is a company that provides digital solutions for businesses.',
+  title: 'Bluehive',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

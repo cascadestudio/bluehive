@@ -15,7 +15,7 @@ export const OurServices: React.FC<OurServicesProps> = ({ services }) => {
         introText="Our services are guided by three core values:"
       />
       <div className="brand-grid mb-8 section-intro-text">
-        <div className="space-y-6 col-span-6">
+        <div className="space-y-6 col-span-12 md:col-span-6">
           <p>
             <b>Innovation</b> – We harness the potential of digital technologies by testing and
             validating new tools and approaches in collaboration with trusted partners. Only the

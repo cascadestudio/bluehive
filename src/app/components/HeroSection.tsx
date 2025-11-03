@@ -14,14 +14,14 @@ export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
     >
       <div className="absolute inset-0 bg-brand-black opacity-60" />
 
-      <div className="relative flex items-center h-full">
+      <div className="relative flex items-center h-full px-4 md:px-0">
         <div className="brand-grid gap-5">
-          <div className="col-start-3 col-span-6">
-            <h1 className="mb-6 font-bold text-white text-5xl tracking-[0] leading-[55px]">
+          <div className="col-span-12 md:col-start-3 md:col-span-8 lg:col-start-3 lg:col-span-6">
+            <h1 className="mb-6 font-bold text-white text-3xl md:text-4xl lg:text-5xl tracking-[0] leading-tight md:leading-[55px]">
               Where advanced digital technologies meet real-world assets
             </h1>
 
-            <p className="mb-8 font-semibold text-white text-2xl tracking-[0] leading-[normal]">
+            <p className="mb-8 font-semibold text-white text-lg md:text-xl lg:text-2xl tracking-[0] leading-normal">
               We engineer tailored industrial IoT solutions for sectors such as utilities,
               environment, and natural resources. We transform data from machines, sensors, and
               cameras into actionable insights with AI-powered analytics, machine learning, and

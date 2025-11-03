@@ -12,7 +12,7 @@ export const About: React.FC = () => {
       />
 
       <div className="brand-grid">
-        <div className="col-span-3">
+        <div className="col-span-12 md:col-span-6 lg:col-span-3">
           <PersonCard
             image="/images/vincent-mottier.jpg"
             name="Vincent Mottier"
@@ -21,7 +21,7 @@ export const About: React.FC = () => {
             linkedinUrl="https://linkedin.com/in/vincent-mottier"
           />
         </div>
-        <div className="col-span-3">
+        <div className="col-span-12 md:col-span-6 lg:col-span-3">
           <PersonCard
             image="/images/patrick-zhao.jpg"
             name="Patrick Zhao"
@@ -31,7 +31,7 @@ export const About: React.FC = () => {
             linkedinUrl="https://linkedin.com/in/patrick-zhao"
           />
         </div>
-        <div className="col-span-3 space-y-4">
+        <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
           <h3 className="font-tag text-base! mb-3">Collaborators</h3>
           <div>
             <p className="font-bold">Mohammed Amin Belarbi</p>
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
             <p className="text-sm">Technical collaborator – Software and ML</p>
           </div>
         </div>
-        <div className="col-span-3 space-y-4">
+        <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
           <h3 className="font-tag text-base! mb-3">Partners</h3>
           <Image src="/logos/arcanite.png" alt="arcanite  " width={140} height={30} />
           <Image src="/logos/ei3.svg" alt="ei3" width={50} height={40} />

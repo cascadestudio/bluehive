@@ -151,12 +151,15 @@ docker-compose -f docker-compose.dev.yml down -v
 docker-compose -f docker-compose.dev.yml up --build
 ```
 
-### La base de données est corrompue
+### La base de données est corrompue ou vide
 
 ```bash
 # Supprime la DB et recrée-la
 docker-compose -f docker-compose.dev.yml down -v
 docker-compose -f docker-compose.dev.yml up
+
+# Ensuite, restaure les données depuis le backup
+docker exec -i bluehive-postgres-1 psql -U postgres -d bluehive_website < backup.sql
 ```
 
 ### Port déjà utilisé

@@ -28,7 +28,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
     <header className="fixed top-4 z-50 px-4 md:px-8 w-full">
       <div className="py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl h-full">
         {/* Desktop & Mobile Header Bar */}
-        <div className="grid grid-cols-12 gap-5 items-center">
+        <div className="grid grid-cols-12 gap-2 md:gap-5 items-center">
           {/* Logo */}
           <div className="col-span-6 md:col-span-2 flex items-center justify-start md:justify-center">
             <a

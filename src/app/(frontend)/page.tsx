@@ -57,7 +57,7 @@ export default async function HomePage() {
     <div>
       <Header />
       <HeroSection />
-      <div className="flex flex-col grow gap-y-32 px-8">
+      <div className="flex flex-col grow gap-y-16 md:gap-y-32 px-4 md:px-8">
         <SelectedProjects projects={projects} />
         <OurServices services={services} />
         <About />

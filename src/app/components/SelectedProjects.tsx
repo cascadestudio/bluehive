@@ -13,7 +13,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
   }
 
   return (
-    <section id="projects" className="mt-20">
+    <section id="projects" className="mt-10 md:mt-20">
       <SectionHeader
         title="SELECTED PROJECTS"
         introText="Here are examples of how we turn complex industrial challenges into reliable, data-driven solutions, built in close collaboration with our clients."
@@ -28,7 +28,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
 
           return (
             <article key={project.id} className={`flex flex-col w-full items-start gap-4 relative`}>
-              <div className="relative w-full h-[330px] bg-cover overflow-hidden">
+              <div className="relative w-full h-[250px] md:h-[330px] bg-cover overflow-hidden">
                 {featuredImage ? (
                   <Image
                     src={featuredImage.url || ''}
