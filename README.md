@@ -12,67 +12,75 @@ Application Payload CMS pour le site web Bluehive avec Next.js 15 et PostgreSQL.
 
 ## 📋 Prérequis
 
-- Node.js >= 18.20.2 ou >= 20.9.0
-- pnpm >= 9
-- Docker & Docker Compose (optionnel)
+**Unique prérequis : Docker & Docker Compose**
 
-## 🛠️ Développement local
+Tout le reste (Node.js, pnpm, PostgreSQL) est géré automatiquement dans Docker ! 🎉
 
-### Option 1 : Sans Docker
+## 🚀 Démarrage rapide
 
-1. **Clone le repository**
+### 1. Clone le repository
 
-   ```bash
-   git clone <repo-url>
-   cd bluehive-payload
-   ```
+```bash
+git clone <repo-url>
+cd bluehive-payload
+```
 
-2. **Installe les dépendances**
-
-   ```bash
-   pnpm install
-   ```
-
-3. **Configure les variables d'environnement**
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   - Le fichier `.env.example` contient toutes les variables nécessaires
-   - Configurez les valeurs selon votre environnement local
-
-4. **Lance le serveur de développement**
-
-   ```bash
-   pnpm dev
-   ```
-
-5. **Ouvre l'application**
-   - Frontend : http://localhost:3000
-   - Admin Panel : http://localhost:3000/admin
-
-### Option 2 : Avec Docker (Recommandé)
-
-**Développement :**
+### 2. Lance le projet
 
 ```bash
 docker-compose -f docker-compose.dev.yml up
 ```
 
-Les données de développement sont pré-configurées :
+C'est tout ! Docker va :
 
-- Base de données : `bluehive_website`
-- Utilisateur : `postgres`
-- Mot de passe : `dev_password_123`
+- ✅ Télécharger toutes les dépendances
+- ✅ Créer la base de données PostgreSQL
+- ✅ Lancer Next.js en mode développement
+- ✅ Activer le hot-reload
 
-**Production :**
+### 3. Ouvre l'application
+
+- **Frontend** : http://localhost:3000
+- **Admin Panel** : http://localhost:3000/admin
+
+Les identifiants de développement sont pré-configurés dans le fichier `docker-compose.dev.yml`.
+
+## 🛠️ Commandes utiles
+
+### Afficher les logs
 
 ```bash
-docker-compose -f docker-compose.yml up -d
+# Tous les logs
+docker-compose -f docker-compose.dev.yml logs -f
+
+# Logs Next.js uniquement
+docker-compose -f docker-compose.dev.yml logs -f app
+
+# Logs PostgreSQL uniquement
+docker-compose -f docker-compose.dev.yml logs -f postgres
 ```
 
-Configure les variables d'environnement via `.env` pour la production.
+### Arrêter le projet
+
+```bash
+# Arrêter les conteneurs
+docker-compose -f docker-compose.dev.yml down
+
+# Arrêter + supprimer les volumes (⚠️ supprime la DB)
+docker-compose -f docker-compose.dev.yml down -v
+```
+
+### Redémarrer après un changement
+
+```bash
+docker-compose -f docker-compose.dev.yml restart
+```
+
+### Accéder au shell du conteneur app
+
+```bash
+docker-compose -f docker-compose.dev.yml exec app sh
+```
 
 ## 📦 Collections
 
@@ -84,108 +92,89 @@ Configure les variables d'environnement via `.env` pour la production.
 
 ## 🧪 Tests
 
+Les tests sont configurés et peuvent être lancés via Docker ou localement si vous avez pnpm installé.
+
 ```bash
-# Tests d'intégration
-pnpm test:int
+# Via Docker
+docker-compose -f docker-compose.dev.yml exec app pnpm test
 
-# Tests E2E
-pnpm test:e2e
-
-# Tous les tests
+# Ou en local si vous avez pnpm installé
 pnpm test
 ```
 
-## 🏗️ Build Production
+## 🏗️ Production
+
+### Build l'image
 
 ```bash
-pnpm build
-pnpm start
+docker build -t bluehive-app:latest .
 ```
 
-## 📚 Scripts disponibles
+### Lance en production
 
-- `pnpm dev` : Serveur de développement
-- `pnpm build` : Build production
-- `pnpm start` : Serveur production
-- `pnpm generate:types` : Génère les types Payload
-- `pnpm lint` : Lint du code
-- `pnpm test` : Lance tous les tests
+```bash
+docker-compose -f docker-compose.yml up -d
+```
 
-### ⚠️ Important : Avant de commiter
+⚠️ Configure les variables d'environnement via `.env` avant de lancer la production.
 
-Toujours lancer `pnpm lint` pour vérifier que votre code respecte les standards du projet !
+## 📝 Configuration
 
-## 👥 Travail en équipe
+### Développement
 
-### Configuration pour un nouveau développeur
+Tout est configuré dans `docker-compose.dev.yml` :
 
-1. **Clone le projet**
+- Base de données : `bluehive_website`
+- Utilisateur : `postgres`
+- Mot de passe : `dev_password_123`
+- Port : `3000`
 
-   ```bash
-   git clone <repo-url>
-   cd bluehive-payload
-   ```
+### Production
 
-2. **Installe les dépendances**
+Utilise `docker-compose.yml` avec les variables d'environnement du fichier `.env`.
 
-   ```bash
-   pnpm install
-   ```
+## 👥 Nouveau développeur ?
 
-3. **Configure ton environnement**
+1. Clone le projet
+2. Lance `docker-compose -f docker-compose.dev.yml up`
+3. C'est tout ! 🎉
 
-   ```bash
-   cp .env.example .env
-   ```
+Aucune installation de Node.js, pnpm ou PostgreSQL nécessaire.
 
-4. **Lance avec Docker** (recommandé)
+## 🔧 Dépannage
 
-   ```bash
-   docker-compose -f docker-compose.dev.yml up
-   ```
+### Le projet ne démarre pas
 
-5. **Ou lance en local**
-   - Assure-toi d'avoir PostgreSQL installé et démarré
-   ```bash
-   pnpm dev
-   ```
+```bash
+# Nettoie tout et recommence
+docker-compose -f docker-compose.dev.yml down -v
+docker-compose -f docker-compose.dev.yml up --build
+```
 
-### Workflow Git
+### La base de données est corrompue
 
-- ✨ Crée une **nouvelle branche** pour chaque feature/fix
-- 📝 Fais des **commits clairs** et descriptifs
-- 🔍 Lance `pnpm lint` **avant de commiter**
-- 💬 Ouvre une **Pull Request** pour review
-- ✅ Les tests doivent **passer** avant de merger
+```bash
+# Supprime la DB et recrée-la
+docker-compose -f docker-compose.dev.yml down -v
+docker-compose -f docker-compose.dev.yml up
+```
 
-### Standards de code
+### Port déjà utilisé
 
-- **ESLint** : Configuration dans `eslint.config.mjs`
-- **Prettier** : Configuration dans `.prettierrc.json`
-- **TypeScript** : Types stricts activés
-- **Tests** : Couvrir les nouvelles features
+Modifie le port dans `docker-compose.dev.yml` :
 
-## 🐳 Différences Docker
+```yaml
+ports:
+  - '3001:3000' # Change 3000 en 3001 (ou autre)
+```
 
-### docker-compose.dev.yml
+## 📚 Fichiers importants
 
-- Hot-reload activé
-- Code monté en volume
-- Valeurs par défaut pour le développement
-- Pas de restart automatique
-
-### docker-compose.yml
-
-- Image containerisée
-- Configuration via variables d'environnement
-- Restart automatique
-- Optimisé pour la production
-
-## 📝 Notes
-
-- Les migrations se trouvent dans `src/migrations/`
-- Les types générés sont dans `src/payload-types.ts`
-- La configuration Payload est dans `src/payload.config.ts`
+- `docker-compose.dev.yml` : Configuration Docker pour le développement
+- `docker-compose.yml` : Configuration Docker pour la production
+- `.env.example` : Exemple de variables d'environnement
+- `src/payload.config.ts` : Configuration Payload CMS
+- `src/collections/` : Définition des collections
 
 ## 🤝 Support
 
