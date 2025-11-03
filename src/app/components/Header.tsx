@@ -30,7 +30,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
         {/* Desktop & Mobile Header Bar */}
         <div className="grid grid-cols-12 gap-2 md:gap-5 items-center">
           {/* Logo */}
-          <div className="col-span-6 md:col-span-2 flex items-center justify-start md:justify-center">
+          <div className="col-span-6 md:col-span-3 flex items-center justify-start ml-3 md:ml-7">
             <a
               href="#"
               onClick={(e) => {
@@ -49,7 +49,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block md:col-span-5"></div>
+          <div className="hidden md:block md:col-span-3 xl:col-span-4"></div>
 
           <div className="hidden md:flex md:col-span-1 items-center">
             <a
@@ -87,7 +87,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
             </a>
           </div>
 
-          <div className="hidden md:flex md:col-span-1 items-center">
+          <div className="hidden md:flex  lg:col-span-2 xl:col-span-1 items-center">
             {/* Language Dropdown */}
             <div className="relative">
               <button
@@ -95,7 +95,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
                 className="flex items-center font-semibold text-white text-base tracking-[0] leading-[normal] hover:opacity-80 transition-opacity"
               >
                 {selectedLanguage}
-                <ChevronDown className="ml-1 text-white" />
+                <ChevronDown className="text-white" />
               </button>
 
               {isLanguageOpen && (

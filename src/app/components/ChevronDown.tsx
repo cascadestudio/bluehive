@@ -17,7 +17,7 @@ export const ChevronDown = ({ className = '' }: ChevronDownProps): React.JSX.Ele
       <path
         d="M4 6L8 10L12 6"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
