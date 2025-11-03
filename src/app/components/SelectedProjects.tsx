@@ -19,7 +19,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
         introText="Here are examples of how we turn complex industrial challenges into reliable, data-driven solutions, built in close collaboration with our clients."
       />
 
-      <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative self-stretch w-full flex-[0_0_auto]">
+      <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5 gap-16">
         {projects.map((project, index) => {
           const featuredImage =
             project.featuredImage && typeof project.featuredImage === 'object'
@@ -43,11 +43,11 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
                 )}
               </div>
 
-              <div className="flex flex-col items-start gap-5 relative self-stretch w-full flex-[0_0_auto]">
-                <div className="font-tag text-brand-blue">
+              <div className="flex flex-col items-start md:gap-5">
+                <div className="font-tag text-brand-blue mb-1 md:mb-0">
                   {typeof project.categories?.[0] === 'object' ? project.categories[0].name : null}
                 </div>
-                <h3 className="font-card-title">{project.title}</h3>
+                <h3 className="font-card-title mb-3 md:mb-0">{project.title}</h3>
 
                 <p className="relative self-stretch font-base-text">{project.description}</p>
               </div>
