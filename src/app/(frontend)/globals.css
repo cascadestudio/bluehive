@@ -133,15 +133,15 @@
   .font-section-title {
     font-size: 28px;
   }
-  
+
   .section-intro-text {
     font-size: 16px;
   }
-  
+
   .font-card-title {
     font-size: var(--mobile-card-title-font-size);
   }
-  
+
   .font-base-text {
     font-size: var(--mobile-text-font-size);
   }
