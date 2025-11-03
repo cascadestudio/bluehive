@@ -1,67 +1,192 @@
-# Payload Blank Template
+# Bluehive Payload CMS
 
-This template comes configured with the bare minimum to get started on anything you need.
+Application Payload CMS pour le site web Bluehive avec Next.js 15 et PostgreSQL.
 
-## Quick start
+## 🚀 Technologies
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+- **Payload CMS** 3.60
+- **Next.js** 15.4
+- **PostgreSQL** 16
+- **TypeScript** 5.7
+- **Tailwind CSS** 4.1
 
-## Quick Start - local setup
+## 📋 Prérequis
 
-To spin up this template locally, follow these steps:
+- Node.js >= 18.20.2 ou >= 20.9.0
+- pnpm >= 9
+- Docker & Docker Compose (optionnel)
 
-### Clone
+## 🛠️ Développement local
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+### Option 1 : Sans Docker
 
-### Development
+1. **Clone le repository**
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+   ```bash
+   git clone <repo-url>
+   cd bluehive-payload
+   ```
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+2. **Installe les dépendances**
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+   ```bash
+   pnpm install
+   ```
 
-#### Docker (Optional)
+3. **Configure les variables d'environnement**
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+   ```bash
+   cp .env.example .env
+   ```
 
-To do so, follow these steps:
+   - Le fichier `.env.example` contient toutes les variables nécessaires
+   - Configurez les valeurs selon votre environnement local
 
-- Modify the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+4. **Lance le serveur de développement**
 
-## How it works
+   ```bash
+   pnpm dev
+   ```
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+5. **Ouvre l'application**
+   - Frontend : http://localhost:3000
+   - Admin Panel : http://localhost:3000/admin
 
-### Collections
+### Option 2 : Avec Docker (Recommandé)
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+**Développement :**
 
-- #### Users (Authentication)
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
 
-  Users are auth-enabled collections that have access to the admin panel.
+Les données de développement sont pré-configurées :
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
+- Base de données : `bluehive_website`
+- Utilisateur : `postgres`
+- Mot de passe : `dev_password_123`
 
-- #### Media
+**Production :**
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+```bash
+docker-compose -f docker-compose.yml up -d
+```
 
-### Docker
+Configure les variables d'environnement via `.env` pour la production.
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+## 📦 Collections
 
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+- **Users** : Authentification et gestion des utilisateurs
+- **Media** : Gestion des médias (images, vidéos)
+- **Projects** : Projets réalisés
+- **ProjectCategories** : Catégories de projets
+- **Services** : Services offerts
 
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+## 🧪 Tests
 
-## Questions
+```bash
+# Tests d'intégration
+pnpm test:int
 
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+# Tests E2E
+pnpm test:e2e
+
+# Tous les tests
+pnpm test
+```
+
+## 🏗️ Build Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+## 📚 Scripts disponibles
+
+- `pnpm dev` : Serveur de développement
+- `pnpm build` : Build production
+- `pnpm start` : Serveur production
+- `pnpm generate:types` : Génère les types Payload
+- `pnpm lint` : Lint du code
+- `pnpm test` : Lance tous les tests
+
+### ⚠️ Important : Avant de commiter
+
+Toujours lancer `pnpm lint` pour vérifier que votre code respecte les standards du projet !
+
+## 👥 Travail en équipe
+
+### Configuration pour un nouveau développeur
+
+1. **Clone le projet**
+
+   ```bash
+   git clone <repo-url>
+   cd bluehive-payload
+   ```
+
+2. **Installe les dépendances**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Configure ton environnement**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Lance avec Docker** (recommandé)
+
+   ```bash
+   docker-compose -f docker-compose.dev.yml up
+   ```
+
+5. **Ou lance en local**
+   - Assure-toi d'avoir PostgreSQL installé et démarré
+   ```bash
+   pnpm dev
+   ```
+
+### Workflow Git
+
+- ✨ Crée une **nouvelle branche** pour chaque feature/fix
+- 📝 Fais des **commits clairs** et descriptifs
+- 🔍 Lance `pnpm lint` **avant de commiter**
+- 💬 Ouvre une **Pull Request** pour review
+- ✅ Les tests doivent **passer** avant de merger
+
+### Standards de code
+
+- **ESLint** : Configuration dans `eslint.config.mjs`
+- **Prettier** : Configuration dans `.prettierrc.json`
+- **TypeScript** : Types stricts activés
+- **Tests** : Couvrir les nouvelles features
+
+## 🐳 Différences Docker
+
+### docker-compose.dev.yml
+
+- Hot-reload activé
+- Code monté en volume
+- Valeurs par défaut pour le développement
+- Pas de restart automatique
+
+### docker-compose.yml
+
+- Image containerisée
+- Configuration via variables d'environnement
+- Restart automatique
+- Optimisé pour la production
+
+## 📝 Notes
+
+- Les migrations se trouvent dans `src/migrations/`
+- Les types générés sont dans `src/payload-types.ts`
+- La configuration Payload est dans `src/payload.config.ts`
+
+## 🤝 Support
+
+Pour toute question, contactez l'équipe de développement.
