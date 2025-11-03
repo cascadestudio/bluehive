@@ -33,7 +33,7 @@ export const PersonCard: React.FC<PersonCardProps> = ({
       <h3 className="font-card-title mb-1">{name}</h3>
 
       {/* Position */}
-      <p className="font-tag text-base! mb-3">{position}</p>
+      <p className="font-tag text-xs! md:text-base! mb-3">{position}</p>
 
       {/* Description */}
       <p className="text-sm mb-4 grow">{description}</p>

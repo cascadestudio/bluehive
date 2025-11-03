@@ -5,13 +5,13 @@ import Image from 'next/image'
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="section-border">
+    <section id="about" className="section-border mb-20 md:mb-0">
       <SectionHeader
         title="ABOUT BLUEHIVE"
         introText="BlueHive Digital Solutions designs, builds, and maintains tailored industrial IoT solutions for sectors such as water, wastewater, environment, recycling, mining, and aggregates. We transform data from machines, vibration sensors, and cameras into actionable insights through advanced analytics, machine learning, and computer vision. These insights are delivered via dashboards, monitoring, alerting, and reporting tools, helping stakeholders improve efficiency, reliability, and sustainability. Backed by strong academic and industry partnerships, our multidisciplinary team ensures solutions that are both robust and future-ready."
       />
 
-      <div className="brand-grid">
+      <div className="brand-grid gap-y-16! md:gap-y-0!">
         <div className="col-span-12 md:col-span-6 lg:col-span-3">
           <PersonCard
             image="/images/vincent-mottier.jpg"

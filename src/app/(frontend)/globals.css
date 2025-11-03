@@ -166,6 +166,9 @@
   line-height: var(--tag-line-height);
   color: var(--brand-blue);
   text-transform: uppercase;
+  /* @media (--mobile) {
+    font-size: 12px;
+  } */
 }
 
 .brand-grid {
