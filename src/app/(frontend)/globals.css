@@ -94,6 +94,10 @@
   --font-family-roboto-mono: var(--font-roboto-mono), ui-monospace, monospace;
 }
 
+/* Breakpoints personnalisés */
+@custom-media --mobile (max-width: 767px);
+@custom-media --tablet (min-width: 768px);
+
 /* Design System Utility Classes */
 .font-base-text {
   font-family: var(--base-text-font-family);
@@ -102,6 +106,10 @@
   letter-spacing: var(--base-text-letter-spacing);
   line-height: var(--base-text-line-height);
   color: var(--brand-black);
+
+  @media (--mobile) {
+    font-size: var(--mobile-text-font-size);
+  }
 }
 
 .font-card-title {
@@ -110,6 +118,10 @@
   font-weight: var(--card-title-font-weight);
   letter-spacing: var(--card-title-letter-spacing);
   line-height: var(--card-title-line-height);
+
+  @media (--mobile) {
+    font-size: var(--mobile-card-title-font-size);
+  }
 }
 
 .font-cta {
@@ -127,23 +139,9 @@
   letter-spacing: var(--section-title-letter-spacing);
   line-height: var(--section-title-line-height);
   color: var(--brand-blue);
-}
 
-@media (max-width: 768px) {
-  .font-section-title {
-    font-size: 28px;
-  }
-
-  .section-intro-text {
-    font-size: 16px;
-  }
-
-  .font-card-title {
-    font-size: var(--mobile-card-title-font-size);
-  }
-
-  .font-base-text {
-    font-size: var(--mobile-text-font-size);
+  @media (--mobile) {
+    font-size: 20px;
   }
 }
 
@@ -154,6 +152,10 @@
   letter-spacing: var(--section-intro-text-letter-spacing);
   line-height: var(--section-intro-text-line-height);
   color: var(--brand-black);
+
+  @media (--mobile) {
+    font-size: 16px;
+  }
 }
 
 .font-tag {
@@ -170,10 +172,8 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1rem;
-}
 
-@media (min-width: 768px) {
-  .brand-grid {
+  @media (--tablet) {
     gap: 2rem;
   }
 }
