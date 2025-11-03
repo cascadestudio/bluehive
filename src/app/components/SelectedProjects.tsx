@@ -13,7 +13,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
   }
 
   return (
-    <section id="projects" className="mt-10 md:mt-20">
+    <section id="projects" className="mt-20">
       <SectionHeader
         title="SELECTED PROJECTS"
         introText="Here are examples of how we turn complex industrial challenges into reliable, data-driven solutions, built in close collaboration with our clients."
