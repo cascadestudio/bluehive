@@ -1,8 +1,7 @@
 const config = {
   plugins: {
-    'postcss-custom-media': {},
-    'postcss-nested': {},
-    '@tailwindcss/postcss': {},
+    "@tailwindcss/postcss": {},
+    "postcss-nested": {},
   },
-}
-export default config
+};
+export default config;
