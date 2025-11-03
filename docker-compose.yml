@@ -1,33 +1,40 @@
-version: '3'
+version: '3.8'
 
 services:
-  payload:
-    image: node:18-alpine
-    ports:
-      - '3000:3000'
-    volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
-    depends_on:
-      - postgres
-    env_file:
-      - .env
-
-  # PostgreSQL Database
   postgres:
+    image: postgres:16-alpine
     restart: always
-    image: postgres:latest
     environment:
-      POSTGRES_DB: bluehive-website
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: your_secure_password
+      POSTGRES_DB: ${POSTGRES_DB:-bluehive_website}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data # ← Même nom de volume
+    networks:
+      - bluehive_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-postgres}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: bluehive-app:latest
+    restart: always
+    environment:
+      DATABASE_URI: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-bluehive_website}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      NODE_ENV: ${NODE_ENV:-production}
     ports:
-      - '5432:5432'
+      - '${APP_PORT:-4000}:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - bluehive_network
 
 volumes:
-  pgdata:
-  node_modules:
+  postgres_data: # ← Même nom que docker-compose.dev.yml
+
+networks:
+  bluehive_network:

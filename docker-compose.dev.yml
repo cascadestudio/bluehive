@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: bluehive_website
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dev_password_123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - bluehive_dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "corepack enable pnpm && pnpm install && pnpm dev"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      DATABASE_URI: postgres://postgres:dev_password_123@postgres:5432/bluehive_website
+      PAYLOAD_SECRET: dev-secret-key-123456789
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - bluehive_dev
+
+volumes:
+  postgres_data:
+
+networks:
+  bluehive_dev:
