@@ -50,11 +50,12 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) 
                       <div className="md:col-span-6">
                         <Image
                           src={service.image.url || ''}
-                          alt={service.image.alt || service.title}
+                          alt={service.image.alt || `${service.title} - Service illustration`}
                           width={service.image.width || 800}
                           height={service.image.height || 600}
                           className="w-full h-auto object-cover"
-                          loading="eager"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       </div>
                     )}

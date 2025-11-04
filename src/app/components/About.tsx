@@ -48,8 +48,13 @@ export const About: React.FC = () => {
         </div>
         <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
           <h3 className="font-tag text-base! mb-3">Partners</h3>
-          <Image src="/logos/arcanite.png" alt="arcanite  " width={140} height={30} />
-          <Image src="/logos/ei3.svg" alt="ei3" width={50} height={40} />
+          <Image
+            src="/logos/arcanite.png"
+            alt="Arcanite partner logo"
+            width={140}
+            height={30}
+          />
+          <Image src="/logos/ei3.svg" alt="EI3 partner logo" width={50} height={40} />
         </div>
       </div>
     </section>

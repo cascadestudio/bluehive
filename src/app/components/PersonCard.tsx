@@ -22,7 +22,7 @@ export const PersonCard: React.FC<PersonCardProps> = ({
       <div className="mb-4 w-full aspect-square relative overflow-hidden">
         <Image
           src={image}
-          alt={name}
+          alt={`${name}, ${position} at BlueHive Digital Solutions`}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

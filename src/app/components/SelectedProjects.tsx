@@ -32,9 +32,10 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
                 {featuredImage ? (
                   <Image
                     src={featuredImage.url || ''}
-                    alt={project.title}
+                    alt={`${project.title} - Featured project image`}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-300 flex items-center justify-center">
