@@ -20,8 +20,22 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
     setIsLanguageOpen(false)
   }
 
-  const handleMobileLinkClick = () => {
-    setIsMobileMenuOpen(false)
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const headerOffset = 112 // Offset pour compenser le header fixe (top-4 + padding)
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+    // Fermer le menu mobile si ouvert
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false)
+    }
   }
 
   return (
@@ -31,12 +45,10 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
         <div className="grid grid-cols-12 gap-2 md:gap-5 items-center">
           {/* Logo */}
           <div className="col-span-6 md:col-span-3 flex items-center justify-start ml-3 md:ml-7">
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="cursor-pointer"
+              aria-label="Scroll to top"
             >
               <Image
                 className="relative w-[120px] md:w-[146.27px] h-auto aspect-[3.75]"
@@ -45,46 +57,46 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
                 width={146}
                 height={39}
               />
-            </a>
+            </button>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block md:col-span-3 xl:col-span-4"></div>
 
           <div className="hidden md:flex md:col-span-1 items-center">
-            <a
-              href="#projects"
-              className="font-semibold text-white text-base tracking-[0] leading-[normal] hover:opacity-80 transition-opacity"
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               Projects
-            </a>
+            </button>
           </div>
 
           <div className="hidden md:flex md:col-span-1 items-center">
-            <a
-              href="#services"
-              className="font-semibold text-white text-base tracking-[0] leading-[normal] hover:opacity-80 transition-opacity"
+            <button
+              onClick={() => scrollToSection('services')}
+              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               Services
-            </a>
+            </button>
           </div>
 
           <div className="hidden md:flex md:col-span-1 items-center">
-            <a
-              href="#about"
-              className="font-semibold text-white text-base tracking-[0] leading-[normal] hover:opacity-80 transition-opacity"
+            <button
+              onClick={() => scrollToSection('about')}
+              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               About
-            </a>
+            </button>
           </div>
 
           <div className="hidden md:flex md:col-span-1 items-center">
-            <a
-              href="#contact"
-              className="font-semibold text-white text-base tracking-[0] leading-[normal] hover:opacity-80 transition-opacity"
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               Contact
-            </a>
+            </button>
           </div>
 
           <div className="hidden md:flex  lg:col-span-2 xl:col-span-1 items-center">
@@ -92,7 +104,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center font-semibold text-white text-base tracking-[0] leading-[normal] hover:opacity-80 transition-opacity"
+                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity"
               >
                 {selectedLanguage}
                 <ChevronDown className="text-white" />
@@ -140,34 +152,30 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-4 pt-4 border-t border-white/20 space-y-4">
-            <a
-              href="#projects"
-              onClick={handleMobileLinkClick}
-              className="block font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity"
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               Projects
-            </a>
-            <a
-              href="#services"
-              onClick={handleMobileLinkClick}
-              className="block font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity"
+            </button>
+            <button
+              onClick={() => scrollToSection('services')}
+              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               Services
-            </a>
-            <a
-              href="#about"
-              onClick={handleMobileLinkClick}
-              className="block font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity"
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               About
-            </a>
-            <a
-              href="#contact"
-              onClick={handleMobileLinkClick}
-              className="block font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity"
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               Contact
-            </a>
+            </button>
 
             {/* Mobile Language Dropdown */}
             <div className="relative pt-2">
