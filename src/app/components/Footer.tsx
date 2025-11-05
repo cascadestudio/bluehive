@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-brand-blue transition-colors"
               >
-                <p>BlueHive Digital Solutions LLC,</p>
+                <p>BlueHive Digital Solutions Sàrl,</p>
                 <p>20, chemin Michée-Chauderon,</p>
                 <p>CH-1203 Genève</p>
               </a>
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-brand-blue transition-colors"
               >
-                <p>BlueHive Digital Solutions LLC,</p>
+                <p>BlueHive Digital Solutions Sàrl,</p>
                 <p>rue de Lyon 77,</p>
                 <p>CH-1203 Genève</p>
               </a>

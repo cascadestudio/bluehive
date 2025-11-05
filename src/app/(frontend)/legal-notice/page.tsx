@@ -19,7 +19,7 @@ export default function LegalNoticePage() {
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">1. Site Editor</h2>
           <p>This website is published by:</p>
           <address className="not-italic mt-2">
-            <p className="font-semibold">BlueHive Digital Solutions LLC</p>
+            <p className="font-semibold">BlueHive Digital Solutions Sàrl</p>
             <p>20, chemin Michée-Chauderon</p>
             <p>CH-1203 Genève</p>
             <p>Switzerland</p>
@@ -41,41 +41,32 @@ export default function LegalNoticePage() {
                 https://bluehive.ch
               </a>
             </p>
-            {/* TODO: Add registration number if available */}
-            {/* <p className="mt-2">
-                <strong>Registration number (RC):</strong> [À compléter]
-              </p> */}
-            {/* TODO: Add VAT number if applicable */}
-            {/* <p>
-                <strong>VAT number:</strong> [À compléter]
-              </p> */}
+            <p className="mt-2">
+              <strong>Registration number (RC): </strong>CH-660.1.362.021-2
+            </p>
+            <p>
+              <strong>VAT number:</strong> CHE-470.040.656
+            </p>
           </address>
         </section>
 
         {/* Directeur de publication */}
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">2. Publication Director</h2>
-          {/* TODO: Add publication director name */}
-          <p>Publication Director: [À compléter - Nom du responsable]</p>
+          <p>Publication Director: Vincent Mottier</p>
         </section>
 
         {/* Hébergement */}
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">3. Hosting</h2>
-          {/* TODO: Add hosting provider information */}
           <p>This website is hosted on a private server.</p>
-          {/* <p>
-              <strong>Hosting provider:</strong> [À compléter - Nom de l'hébergeur]
-            </p>
-            <address className="not-italic mt-2">
-              <p>[Adresse de l'hébergeur]</p>
-              <p>[Téléphone]</p>
-              <p>
-                <a href="[URL]" className="text-brand-blue hover:underline">
-                  [Site web]
-                </a>
-              </p>
-            </address> */}
+          <p>
+            <strong>Hosting provider:</strong> Infomaniak
+          </p>
+          <address className="not-italic mt-2">
+            <p>Infomaniak</p>
+            <p>20, chemin de la Croix-Rouge 1227 Carouge, Switzerland</p>
+          </address>
         </section>
 
         {/* Propriété intellectuelle */}
@@ -84,12 +75,12 @@ export default function LegalNoticePage() {
           <p>
             The entire content of this website, including but not limited to texts, images,
             graphics, logos, videos, and software, is the exclusive property of BlueHive Digital
-            Solutions LLC, unless otherwise stated. All rights are reserved.
+            Solutions Sàrl, unless otherwise stated. All rights are reserved.
           </p>
           <p className="mt-4">
             Any reproduction, representation, modification, publication, or adaptation of all or
             part of the elements of the site, regardless of the means or process used, is prohibited
-            without prior written authorization from BlueHive Digital Solutions LLC.
+            without prior written authorization from BlueHive Digital Solutions Sàrl.
           </p>
           <p className="mt-4">
             Unauthorized use of the site or any of its contents will give rise to legal proceedings.
@@ -111,7 +102,7 @@ export default function LegalNoticePage() {
           </p>
           <p className="mt-4">
             The personal information collected on this site is intended for the use of BlueHive
-            Digital Solutions LLC and will not be communicated to third parties. This information
+            Digital Solutions Sàrl and will not be communicated to third parties. This information
             may be used for statistical purposes and to improve the quality of our services.
           </p>
         </section>
@@ -133,18 +124,18 @@ export default function LegalNoticePage() {
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">7. Limitation of Liability</h2>
           <p>
-            BlueHive Digital Solutions LLC cannot be held responsible for direct or indirect damage
+            BlueHive Digital Solutions Sàrl cannot be held responsible for direct or indirect damage
             caused to the user's equipment when accessing the site, resulting either from the use of
             equipment that does not meet the specifications indicated, or from the appearance of a
             bug or incompatibility.
           </p>
           <p className="mt-4">
-            BlueHive Digital Solutions LLC cannot also be held responsible for indirect damage (such
-            as loss of market or loss of opportunity) resulting from the use of the site.
+            BlueHive Digital Solutions Sàrl cannot also be held responsible for indirect damage
+            (such as loss of market or loss of opportunity) resulting from the use of the site.
           </p>
           <p className="mt-4">
             Interactive spaces (contact forms, comments) are available to users. BlueHive Digital
-            Solutions LLC reserves the right to delete, without prior notice, any content posted in
+            Solutions Sàrl reserves the right to delete, without prior notice, any content posted in
             this space that would contravene applicable law in Switzerland, in particular provisions
             relating to data protection.
           </p>
@@ -154,7 +145,7 @@ export default function LegalNoticePage() {
         <section>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">8. External Links</h2>
           <p>
-            This website may contain links to external websites. BlueHive Digital Solutions LLC has
+            This website may contain links to external websites. BlueHive Digital Solutions Sàrl has
             no control over these external sites and cannot be held responsible for their content,
             privacy policies, or practices.
           </p>

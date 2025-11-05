@@ -41,7 +41,7 @@ export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
                 }
               }}
-              className="self-end md:self-start inline-flex items-center justify-center gap-1 px-6 py-3 bg-brand-blue rounded-lg hover:opacity-90 transition-opacity"
+              className="cursor-pointer self-end md:self-start inline-flex items-center justify-center gap-1 px-6 py-3 bg-brand-blue rounded-lg hover:opacity-90 transition-opacity"
               aria-label="Scroll to contact section"
             >
               <span className="font-bold text-white text-base">Contact us</span>
