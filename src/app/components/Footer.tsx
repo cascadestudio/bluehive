@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="border-t border-brand-blue pt-6 pb-12 mt-16 md:mt-32">
+    <footer id="contact" className="border-t border-brand-blue pt-6 pb-4 mt-16 md:mt-32">
       <div className="brand-grid gap-y-10! md:gap-y-0!">
         {/* Contact Us */}
         <div className="col-span-12 sm:col-span-6 md:col-span-2">
@@ -99,6 +99,22 @@ export const Footer: React.FC = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="mt-10 pt-6 flex flex-col sm:flex-row sm:justify-between items-start sm:items-center text-xs gap-y-2">
+        <p>© BlueHive Digital Solutions. {new Date().getFullYear()}</p>
+        <p>
+          Website by {''}
+          <a
+            href="https://www.cascadestudio.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-blue transition-colors"
+          >
+            Cascade studio
+          </a>
+        </p>
       </div>
     </footer>
   )
