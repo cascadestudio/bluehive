@@ -6,11 +6,9 @@ import type { Metadata } from 'next'
 
 import config from '@/payload.config'
 import { HeroSection } from '@/app/components/HeroSection'
-import { Header } from '@/app/components/Header'
 import { SelectedProjects } from '@/app/components/SelectedProjects'
 import { OurServices } from '@/app/components/OurServices'
 import { About } from '@/app/components/About'
-import { Footer } from '@/app/components/Footer'
 
 export const metadata: Metadata = {
   title: 'BlueHive Digital Solutions',
@@ -113,15 +111,11 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <div>
-        <Header />
-        <HeroSection />
-        <main className="flex flex-col grow gap-y-16 md:gap-y-32 px-4 md:px-8">
-          <SelectedProjects projects={projects} />
-          <OurServices services={services} />
-          <About />
-          <Footer />
-        </main>
+      <HeroSection />
+      <div className="flex flex-col grow gap-y-16 md:gap-y-32 px-4 md:px-8">
+        <SelectedProjects projects={projects} />
+        <OurServices services={services} />
+        <About />
       </div>
     </>
   )
