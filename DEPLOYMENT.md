@@ -16,7 +16,7 @@ Ce guide explique comment déployer l'application Bluehive sur votre serveur Ubu
 Exécutez le script de déploiement :
 
 ```bash
-./build-and-transfer.sh
+./scripts/build-and-transfer.sh
 ```
 
 Ce script va :
@@ -143,6 +143,94 @@ APP_PORT=4000
 ```
 
 ## Dépannage
+
+### Site inaccessible en production
+
+**1. Vérifier que les conteneurs sont en cours d'exécution :**
+
+```bash
+ssh ubuntu@84.234.21.152
+cd /var/www/bluehive
+docker-compose ps
+```
+
+Les deux services (`app` et `postgres`) doivent être `Up`.
+
+**2. Vérifier les logs de l'application :**
+
+```bash
+docker-compose logs app
+```
+
+Cherchez des erreurs comme :
+
+- `DATABASE_URI` manquant
+- `PAYLOAD_SECRET` manquant
+- Erreurs de connexion à la base de données
+- Erreurs de build Next.js
+
+**3. Vérifier que le port est exposé :**
+
+```bash
+docker-compose ps
+# Vérifiez que vous voyez : 0.0.0.0:4000->3000/tcp (ou le port configuré dans APP_PORT)
+```
+
+**4. Tester depuis le serveur :**
+
+```bash
+# Depuis le serveur, tester localement
+curl http://localhost:4000
+# ou
+curl http://127.0.0.1:4000
+```
+
+Si ça fonctionne localement mais pas depuis l'extérieur :
+
+- Vérifiez le firewall (UFW)
+- Vérifiez le reverse proxy (Nginx/Caddy)
+- Vérifiez que le port est ouvert dans le firewall du fournisseur cloud
+
+**5. Vérifier les variables d'environnement :**
+
+```bash
+# Vérifier que le fichier .env existe
+ls -la /var/www/bluehive/.env
+
+# Vérifier les variables dans le conteneur
+docker-compose exec app env | grep -E "DATABASE_URI|PAYLOAD_SECRET|NODE_ENV"
+```
+
+**6. Vérifier le firewall :**
+
+```bash
+# Vérifier les ports ouverts
+sudo ufw status
+# Si le port 4000 n'est pas ouvert :
+sudo ufw allow 4000/tcp
+```
+
+**7. Vérifier le reverse proxy (si configuré) :**
+
+Si vous utilisez Nginx ou Caddy, vérifiez la configuration :
+
+```bash
+# Nginx
+sudo nginx -t
+sudo systemctl status nginx
+
+# Vérifier la configuration du site
+sudo cat /etc/nginx/sites-available/bluehive
+```
+
+**8. Redémarrer proprement :**
+
+```bash
+cd /var/www/bluehive
+docker-compose down
+docker-compose up -d
+docker-compose logs -f app
+```
 
 ### Voir les logs
 
