@@ -22,7 +22,7 @@ Tout le reste (Node.js, pnpm, PostgreSQL) est géré automatiquement dans Docker
 
 ```bash
 git clone <repo-url>
-cd bluehive-payload
+cd bluehive
 ```
 
 ### 2. Lance le projet
