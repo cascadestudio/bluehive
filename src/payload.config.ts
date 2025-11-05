@@ -33,7 +33,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
-    push: process.env.NODE_ENV !== 'production', // Auto-push en dev, pas en prod
+    push: process.env.NODE_ENV !== 'production', // Auto-push en dev et staging, pas en prod
   }),
   sharp,
   localization: {
