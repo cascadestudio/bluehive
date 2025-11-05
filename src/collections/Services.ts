@@ -17,6 +17,7 @@ export const Services: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
       admin: {
         description: 'Service title',
       },
@@ -25,6 +26,7 @@ export const Services: CollectionConfig = {
       name: 'description',
       type: 'textarea',
       required: true,
+      localized: true,
       admin: {
         description: 'Service description',
       },
@@ -50,6 +52,7 @@ export const Services: CollectionConfig = {
           name: 'useCase',
           type: 'textarea',
           required: true,
+          localized: true,
           admin: {
             description: 'Use case description',
           },

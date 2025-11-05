@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { useRouter, usePathname } from 'next/navigation'
 import { ChevronDown } from './ChevronDown'
 
 interface HeaderProps {
@@ -9,14 +10,21 @@ interface HeaderProps {
 }
 
 export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
+  const router = useRouter()
+  const pathname = usePathname()
   const [isLanguageOpen, setIsLanguageOpen] = useState(false)
-  const [selectedLanguage, setSelectedLanguage] = useState('English')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const languages = ['English', 'French', 'German']
+  // Détecter la locale actuelle depuis l'URL
+  const currentLocale = pathname.split('/')[1] || 'en'
+  const selectedLanguage = currentLocale === 'fr' ? 'French' : 'English'
 
-  const handleLanguageChange = (language: string) => {
-    setSelectedLanguage(language)
+  const languages = [
+    { code: 'en', label: 'English' },
+    { code: 'fr', label: 'French' },
+  ]
+
+  const handleLanguageChange = (localeCode: string) => {
     setIsLanguageOpen(false)
   }
 
@@ -111,16 +119,16 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute top-full right-0 mt-1 w-[80px] bg-[#1e1e1e99] backdrop-blur-[5px] rounded-lg shadow-lg z-10">
+                <div className="absolute top-full right-0 mt-1 w-[100px] bg-[#1e1e1e99] backdrop-blur-[5px] rounded-lg shadow-lg z-10">
                   {languages
-                    .filter((language) => language !== selectedLanguage)
+                    .filter((language) => language.code !== currentLocale)
                     .map((language) => (
                       <button
-                        key={language}
-                        onClick={() => handleLanguageChange(language)}
+                        key={language.code}
+                        onClick={() => handleLanguageChange(language.code)}
                         className="w-full px-3 py-2  font-semibold text-white  first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity"
                       >
-                        {language}
+                        {language.label}
                       </button>
                     ))}
                 </div>
@@ -190,14 +198,14 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               {isLanguageOpen && (
                 <div className="mt-2 w-full bg-[#1e1e1e99] backdrop-blur-[5px] rounded-lg shadow-lg">
                   {languages
-                    .filter((language) => language !== selectedLanguage)
+                    .filter((language) => language.code !== currentLocale)
                     .map((language) => (
                       <button
-                        key={language}
-                        onClick={() => handleLanguageChange(language)}
+                        key={language.code}
+                        onClick={() => handleLanguageChange(language.code)}
                         className="w-full px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity"
                       >
-                        {language}
+                        {language.label}
                       </button>
                     ))}
                 </div>

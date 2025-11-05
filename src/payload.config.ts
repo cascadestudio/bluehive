@@ -33,8 +33,23 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    push: process.env.NODE_ENV === 'development', // Auto-push schema in development
   }),
   sharp,
+  localization: {
+    locales: [
+      {
+        label: 'English',
+        code: 'en',
+      },
+      {
+        label: 'Français',
+        code: 'fr',
+      },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder

@@ -1,0 +1,7 @@
+FROM node:20-alpine
+
+# Pre-install pnpm (this layer will be cached)
+RUN npm install -g pnpm@latest
+
+WORKDIR /app
+

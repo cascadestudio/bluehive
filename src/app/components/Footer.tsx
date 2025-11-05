@@ -1,4 +1,5 @@
 import React from 'react'
+import { LegalNoticeLink } from './LegalNoticeLink'
 
 export const Footer: React.FC = () => {
   return (
@@ -94,9 +95,7 @@ export const Footer: React.FC = () => {
             <h3 className="font-tag mb-4">Legal</h3>
             <div className="text-sm">
               <p>
-                <a href="/legal-notice" className="hover:text-brand-blue transition-colors">
-                  Legal notice
-                </a>
+                <LegalNoticeLink />
               </p>
             </div>
           </div>

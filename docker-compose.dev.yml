@@ -12,15 +12,19 @@ services:
     networks:
       - bluehive_dev
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
       interval: 5s
       timeout: 5s
       retries: 5
 
   app:
-    image: node:20-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     working_dir: /app
-    command: sh -c "corepack enable pnpm && pnpm install && pnpm dev"
+    command: sh -c "pnpm install && /app/scripts/start-dev.sh"
+    stdin_open: true
+    tty: true
     volumes:
       - .:/app
       - /app/node_modules
@@ -29,7 +33,7 @@ services:
       PAYLOAD_SECRET: dev-secret-key-123456789
       NODE_ENV: development
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       postgres:
         condition: service_healthy

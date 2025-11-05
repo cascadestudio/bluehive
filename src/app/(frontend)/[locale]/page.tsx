@@ -10,25 +10,37 @@ import { SelectedProjects } from '@/app/components/SelectedProjects'
 import { OurServices } from '@/app/components/OurServices'
 import { About } from '@/app/components/About'
 
-export const metadata: Metadata = {
-  title: 'BlueHive Digital Solutions',
-  description:
-    'BlueHive Digital Solutions engineers tailored industrial IoT solutions for utilities, environment, and natural resources. We transform data from machines, sensors, and cameras into actionable insights with AI-powered analytics, machine learning, and computer vision.',
-  openGraph: {
-    title: 'BlueHive Digital Solutions | Industrial IoT & AI Solutions',
-    description:
-      'We engineer tailored industrial IoT solutions and transform data from machines, sensors, and cameras into actionable insights with AI-powered analytics.',
-    url: '/',
-  },
+type Props = {
+  params: Promise<{ locale: string }>
 }
 
-async function getSelectedProjects(): Promise<Project[]> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const isFrench = locale === 'fr'
+
+  return {
+    title: 'BlueHive Digital Solutions',
+    description: isFrench
+      ? "BlueHive Digital Solutions conçoit des solutions IoT industrielles sur mesure pour les services publics, l'environnement et les ressources naturelles. Nous transformons les données des machines, capteurs et caméras en informations exploitables grâce à l'analyse IA, l'apprentissage automatique et la vision par ordinateur."
+      : 'BlueHive Digital Solutions engineers tailored industrial IoT solutions for utilities, environment, and natural resources. We transform data from machines, sensors, and cameras into actionable insights with AI-powered analytics, machine learning, and computer vision.',
+    openGraph: {
+      title: 'BlueHive Digital Solutions | Industrial IoT & AI Solutions',
+      description: isFrench
+        ? "Nous concevons des solutions IoT industrielles sur mesure et transformons les données des machines, capteurs et caméras en informations exploitables grâce à l'analyse IA."
+        : 'We engineer tailored industrial IoT solutions and transform data from machines, sensors, and cameras into actionable insights with AI-powered analytics.',
+      url: '/',
+    },
+  }
+}
+
+async function getSelectedProjects(locale: string): Promise<Project[]> {
   const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
   const { docs: allProjects } = await payload.find({
     collection: 'projects',
+    locale: locale as 'en' | 'fr',
     where: {
       selectedProject: {
         not_equals: 'none',
@@ -47,22 +59,24 @@ async function getSelectedProjects(): Promise<Project[]> {
     .slice(0, 4) // Take only the first 4 projects
 }
 
-async function getServices(): Promise<Service[]> {
+async function getServices(locale: string): Promise<Service[]> {
   const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
   const { docs: services } = await payload.find({
     collection: 'services',
+    locale: locale as 'en' | 'fr',
     sort: 'createdAt',
   })
 
   return services
 }
 
-export default async function HomePage() {
-  const projects = await getSelectedProjects()
-  const services = await getServices()
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params
+  const projects = await getSelectedProjects(locale)
+  const services = await getServices(locale)
 
   // Structured Data for SEO
   const organizationSchema = {
