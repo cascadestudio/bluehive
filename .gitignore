@@ -25,8 +25,10 @@
 *.pem
 
 # backups and archives
-*.sql
-*.tar.gz
+   *.sql
+   *.sql.gz
+   *.tar.gz
+   /backups/
 
 # debug
 npm-debug.log*

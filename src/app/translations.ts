@@ -68,7 +68,7 @@ export const translations = {
     },
     // Projects Section
     projects: {
-      title: 'SELECTED PROJECTS',
+      title: 'Project examples',
       introText:
         'Here are examples of how we turn complex industrial challenges into reliable, data-driven solutions, built in close collaboration with our clients.',
       noImage: 'No Image',
@@ -143,7 +143,7 @@ export const translations = {
     },
     // Projects Section
     projects: {
-      title: 'PROJETS SÉLECTIONNÉS',
+      title: 'Exemples de projets',
       introText:
         'Voici des exemples de la façon dont nous transformons des défis industriels complexes en solutions fiables et basées sur les données, construites en étroite collaboration avec nos clients.',
       noImage: 'Aucune image',

@@ -8,7 +8,7 @@ interface SectionHeaderProps {
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ title, introText }) => {
   return (
     <>
-      <h2 className="font-section-title mb-2">{title}</h2>
+      <h2 className="font-section-title mb-2 uppercase">{title}</h2>
 
       {introText && (
         <div className="brand-grid mb-10">
