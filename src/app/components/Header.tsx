@@ -57,6 +57,9 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
     }
   }
 
+  const mobileMenuItemBaseClasses =
+    'w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-brand-blue'
+
   return (
     <header className="fixed top-4 z-50 px-4 md:px-8 w-full">
       <div className="py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl h-full">
@@ -173,31 +176,28 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
           <nav className="md:hidden mt-4 px-4">
             <button
               onClick={() => scrollToSection('projects')}
-              className="w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
+              className={`${mobileMenuItemBaseClasses} border-t`}
             >
               {t.projects}
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="block w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
+              className={mobileMenuItemBaseClasses}
             >
               {t.services}
             </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="block w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
-            >
+            <button onClick={() => scrollToSection('about')} className={mobileMenuItemBaseClasses}>
               {t.about}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
+              className={mobileMenuItemBaseClasses}
             >
               {t.contact}
             </button>
 
             {/* Mobile Language Dropdown */}
-            <div className="relative py-3 border-b border-t border-brand-blue">
+            <div className="relative py-3 border-b border-brand-blue">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
                 className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
