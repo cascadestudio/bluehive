@@ -127,11 +127,13 @@ Voir `DEPLOYMENT.md` pour les instructions de déploiement sur un serveur Ubuntu
 Pour sauvegarder la base de données depuis le staging et déployer sur le serveur Bluehive :
 
 1. **Sauvegarder la DB depuis staging** :
+
    ```bash
    ./scripts/backup-staging-db.sh
    ```
 
 2. **Préparer le package Bluehive** :
+
    ```bash
    ./scripts/prepare-bluehive-package.sh
    ```
@@ -167,9 +169,17 @@ Aucune installation de Node.js, pnpm ou PostgreSQL nécessaire.
 
 ```bash
 # Nettoie tout et recommence
+# ⚠️ ATTENTION : Cette commande supprime TOUTES les données de la base de données
 docker-compose -f docker-compose.dev.yml down -v
 docker-compose -f docker-compose.dev.yml up --build
 ```
+
+**Explication :**
+
+- `down -v` : Arrête les conteneurs et supprime les volumes (données PostgreSQL)
+- `up --build` : Reconstruit les images Docker et relance les conteneurs avec une configuration propre
+
+**💡 Astuce :** Si vous voulez conserver vos données, sauvegardez d'abord la base de données avant d'exécuter cette commande (voir section "La base de données est corrompue ou vide" ci-dessous).
 
 ### La base de données est corrompue ou vide
 
