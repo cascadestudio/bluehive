@@ -3,7 +3,7 @@
 import React from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import type { Project } from '@/payload-types'
+import type { Project, ProjectCategory } from '@/payload-types'
 import { SectionHeader } from './SectionHeader'
 import { translations } from '@/app/translations'
 import type { Locale } from '@/app/translations'
@@ -51,10 +51,22 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
               </div>
 
               <div className="flex flex-col">
-                <div className="font-tag text-brand-blue mb-1 md:mb-2">
-                  {typeof project.categories?.[0] === 'object' ? project.categories[0].name : null}
+                <div className="font-tag text-brand-blue mb-2 flex flex-wrap gap-1 md:min-h-9">
+                  {(() => {
+                    const validCategories =
+                      project.categories?.filter(
+                        (cat): cat is ProjectCategory =>
+                          typeof cat === 'object' && cat !== null && 'name' in cat,
+                      ) ?? []
+                    return validCategories.map((category, idx) => (
+                      <span key={category.id || idx} className="mr-2">
+                        {category.name}
+                        {idx < validCategories.length - 1 && ', '}
+                      </span>
+                    ))
+                  })()}
                 </div>
-                <h3 className="font-card-title mb-3 md:mb-4">{project.title}</h3>
+                <h3 className="font-card-title mb-3 md:mb-4 md:min-h-14">{project.title}</h3>
 
                 <p className="relative self-stretch font-base-text">{project.description}</p>
               </div>
