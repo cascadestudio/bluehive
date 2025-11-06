@@ -3,5 +3,7 @@ FROM node:20-alpine
 # Install pnpm using corepack (recommended method for Node.js 20+)
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-WORKDIR /app
+# Ensure corepack is in PATH and enabled
+ENV PATH="/usr/local/bin:$PATH"
 
+WORKDIR /app
