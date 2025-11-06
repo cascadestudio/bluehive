@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - postgres_data:/var/lib/postgresql/data # ← Même nom de volume
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - bluehive_network
     healthcheck:
@@ -34,7 +34,7 @@ services:
       - bluehive_network
 
 volumes:
-  postgres_data: # ← Même nom que docker-compose.dev.yml
+  postgres_data:
 
 networks:
   bluehive_network:
