@@ -130,7 +130,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute top-full mt-1 w-[100px] bg-[#1e1e1e] rounded-lg shadow-lg z-10">
+                <div className="absolute top-full mt-1 w-[100px] bg-brand-black rounded-lg shadow-lg z-10">
                   {languages
                     .filter((language) => language.code !== currentLocale)
                     .map((language) => (
@@ -207,7 +207,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               </button>
 
               {isLanguageOpen && (
-                <div className="mt-2 absolute bg-[#1e1e1e] backdrop-blur-[5px] rounded-lg shadow-lg">
+                <div className="mt-2 absolute bg-brand-black backdrop-blur-[5px] rounded-lg shadow-lg">
                   {languages
                     .filter((language) => language.code !== currentLocale)
                     .map((language) => (
