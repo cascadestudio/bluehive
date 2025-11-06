@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 
 interface HeroSectionProps {
   // Props can be added here in the future
@@ -8,15 +9,24 @@ interface HeroSectionProps {
 
 export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
   return (
-    <section
-      className="w-full md:h-screen bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage:
-          'linear-gradient(rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6)), url(/images/hero.jpg)',
-      }}
-      aria-label="Hero section"
-    >
-      <div className="relative flex md:items-center h-full px-4 md:px-0 pb-4 md:pb-0">
+    <section className="relative w-full md:h-screen overflow-hidden" aria-label="Hero section">
+      {/* Background Image avec overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero.jpg"
+          alt="BlueHive Digital Solutions - Industrial IoT Solutions"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          quality={85}
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black/60" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex md:items-center h-full px-4 md:px-0 pb-4 md:pb-0">
         <div className="mt-28 md:mt-0 brand-grid gap-5">
           <div className="col-span-12 md:col-start-3 md:col-span-8 lg:col-start-3 lg:col-span-6 flex flex-col">
             <h1 className="mb-6 font-bold text-white text-3xl md:text-4xl lg:text-5xl">
