@@ -19,8 +19,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    user: root # Force root user
     working_dir: /app
-    command: sh -c "corepack enable && /app/scripts/start-dev.sh"
+    command: sh -c "corepack enable && pnpm install && pnpm dev"
     stdin_open: true
     tty: true
     volumes:

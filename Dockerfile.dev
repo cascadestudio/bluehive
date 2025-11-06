@@ -1,9 +1,10 @@
 FROM node:20-alpine
 
 # Install pnpm using corepack (recommended method for Node.js 20+)
+# This prepares pnpm during build time for faster container startup
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Ensure corepack is in PATH and enabled
+# Ensure corepack binaries are in PATH
 ENV PATH="/usr/local/bin:$PATH"
 
 WORKDIR /app
