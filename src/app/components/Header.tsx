@@ -62,7 +62,11 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
 
   return (
     <header className="fixed top-4 z-50 px-4 md:px-8 w-full">
-      <div className="py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl h-full">
+      <div
+        className={`py-4 md:py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl transition-[max-height] duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'max-h-[800px]' : 'max-h-[64px]'
+        }`}
+      >
         {/* Desktop & Mobile Header Bar */}
         <div className="grid grid-cols-12 gap-2 md:gap-5 items-center">
           {/* Logo */}
@@ -172,58 +176,54 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 px-4">
+        <nav
+          className={`md:hidden mt-4 px-4 transition-[max-height,opacity] duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 mt-0'
+          }`}
+        >
+          <button
+            onClick={() => scrollToSection('projects')}
+            className={`${mobileMenuItemBaseClasses} border-t`}
+          >
+            {t.projects}
+          </button>
+          <button onClick={() => scrollToSection('services')} className={mobileMenuItemBaseClasses}>
+            {t.services}
+          </button>
+          <button onClick={() => scrollToSection('about')} className={mobileMenuItemBaseClasses}>
+            {t.about}
+          </button>
+          <button onClick={() => scrollToSection('contact')} className={mobileMenuItemBaseClasses}>
+            {t.contact}
+          </button>
+
+          {/* Mobile Language Dropdown */}
+          <div className="relative py-3 border-b border-brand-blue">
             <button
-              onClick={() => scrollToSection('projects')}
-              className={`${mobileMenuItemBaseClasses} border-t`}
+              onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+              className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
             >
-              {t.projects}
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className={mobileMenuItemBaseClasses}
-            >
-              {t.services}
-            </button>
-            <button onClick={() => scrollToSection('about')} className={mobileMenuItemBaseClasses}>
-              {t.about}
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className={mobileMenuItemBaseClasses}
-            >
-              {t.contact}
+              {selectedLanguage}
+              <ChevronDown className="ml-1 text-white" />
             </button>
 
-            {/* Mobile Language Dropdown */}
-            <div className="relative py-3 border-b border-brand-blue">
-              <button
-                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
-              >
-                {selectedLanguage}
-                <ChevronDown className="ml-1 text-white" />
-              </button>
-
-              {isLanguageOpen && (
-                <div className="mt-2 absolute bg-brand-black backdrop-blur-[5px] rounded-lg shadow-lg">
-                  {languages
-                    .filter((language) => language.code !== currentLocale)
-                    .map((language) => (
-                      <button
-                        key={language.code}
-                        onClick={() => handleLanguageChange(language.code)}
-                        className="w-full text-base px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
-                      >
-                        {language.code === 'fr' ? t.french : t.english}
-                      </button>
-                    ))}
-                </div>
-              )}
-            </div>
-          </nav>
-        )}
+            {isLanguageOpen && (
+              <div className="mt-2 absolute bg-brand-black backdrop-blur-[5px] rounded-lg shadow-lg z-20">
+                {languages
+                  .filter((language) => language.code !== currentLocale)
+                  .map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => handleLanguageChange(language.code)}
+                      className="w-full text-base px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
+                    >
+                      {language.code === 'fr' ? t.french : t.english}
+                    </button>
+                  ))}
+              </div>
+            )}
+          </div>
+        </nav>
       </div>
     </header>
   )
