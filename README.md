@@ -118,6 +118,26 @@ docker-compose -f docker-compose.yml up -d
 
 ⚠️ Configure les variables d'environnement via `.env` avant de lancer la production.
 
+### Déploiement sur serveur
+
+Voir `DEPLOYMENT.md` pour les instructions de déploiement sur un serveur Ubuntu.
+
+### Déploiement Bluehive (staging → production Bluehive)
+
+Pour sauvegarder la base de données depuis le staging et déployer sur le serveur Bluehive :
+
+1. **Sauvegarder la DB depuis staging** :
+   ```bash
+   ./scripts/backup-staging-db.sh
+   ```
+
+2. **Préparer le package Bluehive** :
+   ```bash
+   ./scripts/prepare-bluehive-package.sh
+   ```
+
+3. **Suivre les instructions** dans `CLIENT_DEPLOYMENT.md` pour transférer et installer sur le serveur Bluehive.
+
 ## 📝 Configuration
 
 ### Développement
