@@ -112,7 +112,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity"
+                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
               >
                 {selectedLanguage}
                 <ChevronDown className="text-white" />
@@ -126,7 +126,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
                       <button
                         key={language.code}
                         onClick={() => handleLanguageChange(language.code)}
-                        className="w-full px-3 py-2  font-semibold text-white  first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity"
+                        className="w-full px-3 py-2  font-semibold text-white  first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
                       >
                         {language.label}
                       </button>
@@ -189,7 +189,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
             <div className="relative pt-2">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity"
+                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
               >
                 {selectedLanguage}
                 <ChevronDown className="ml-1 text-white" />
@@ -203,7 +203,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
                       <button
                         key={language.code}
                         onClick={() => handleLanguageChange(language.code)}
-                        className="w-full px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity"
+                        className="w-full px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
                       >
                         {language.label}
                       </button>
