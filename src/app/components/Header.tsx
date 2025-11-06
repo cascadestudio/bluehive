@@ -26,6 +26,14 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
 
   const handleLanguageChange = (localeCode: string) => {
     setIsLanguageOpen(false)
+    // Replace the current locale in the pathname with the new locale
+    const pathSegments = pathname.split('/').filter(Boolean)
+    const newPathSegments =
+      pathSegments.length > 0 && ['en', 'fr'].includes(pathSegments[0])
+        ? [localeCode, ...pathSegments.slice(1)]
+        : [localeCode, ...pathSegments]
+    const newPath = '/' + newPathSegments.join('/')
+    router.push(newPath)
   }
 
   const scrollToSection = (sectionId: string) => {
