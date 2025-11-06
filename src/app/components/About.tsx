@@ -31,7 +31,7 @@ export const About: React.FC = () => {
         <div className="col-span-12 md:col-span-6 lg:col-span-3">
           <PersonCard
             image="/images/patrick-zhao.jpg"
-            name="Patrick Zhao"
+            name="Patrick (Yupeng) Zhao"
             position={t.coFounderCTO}
             description={t.patrickDescription}
             linkedinUrl="https://linkedin.com/in/patrick-zhao"
@@ -49,18 +49,13 @@ export const About: React.FC = () => {
             <p className="text-sm">{t.softwareEngineer}</p>
           </div>
           <div>
-            <p className="font-bold">Mohammed Amin Belarbi</p>
+            <p className="font-bold">Grégoire Mottier</p>
             <p className="text-sm">{t.technicalCollaborator}</p>
           </div>
         </div>
         <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
           <h3 className="font-tag text-base! mb-3">{t.partners}</h3>
-          <Image
-            src="/logos/arcanite.png"
-            alt="Arcanite partner logo"
-            width={140}
-            height={30}
-          />
+          <Image src="/logos/arcanite.png" alt="Arcanite partner logo" width={140} height={30} />
           <Image src="/logos/ei3.svg" alt="EI3 partner logo" width={50} height={40} />
         </div>
       </div>

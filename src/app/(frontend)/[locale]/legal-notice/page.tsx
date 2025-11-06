@@ -23,16 +23,16 @@ const translations = {
     hostingProvider: 'Hosting provider:',
     intellectualProperty: 'Intellectual Property',
     ipText1:
-      'The entire content of this website, including but not limited to texts, images, graphics, logos, videos, and software, is the exclusive property of BlueHive Digital Solutions Sàrl, unless otherwise stated. All rights are reserved.',
+      'The entire content of this website, including but not limited to texts, images, graphics, logos, videos, and software, is the exclusive property of BlueHive Digital Solutions LLC, unless otherwise stated. All rights are reserved.',
     ipText2:
-      'Any reproduction, representation, modification, publication, or adaptation of all or part of the elements of the site, regardless of the means or process used, is prohibited without prior written authorization from BlueHive Digital Solutions Sàrl.',
+      'Any reproduction, representation, modification, publication, or adaptation of all or part of the elements of the site, regardless of the means or process used, is prohibited without prior written authorization from BlueHive Digital Solutions LLC.',
     ipText3:
       'Unauthorized use of the site or any of its contents will give rise to legal proceedings. The same applies to databases appearing on the website, which are protected by the provisions of the Swiss Federal Law on Copyright and Related Rights.',
     dataProtection: 'Personal Data Protection',
     dataProtectionText1:
       'In accordance with the Swiss Federal Data Protection Act (FADP), you have the right to access, rectify, and delete data concerning you. You can exercise this right by contacting us at:',
     dataProtectionText2:
-      'The personal information collected on this site is intended for the use of BlueHive Digital Solutions Sàrl and will not be communicated to third parties. This information may be used for statistical purposes and to improve the quality of our services.',
+      'The personal information collected on this site is intended for the use of BlueHive Digital Solutions LLC and will not be communicated to third parties. This information may be used for statistical purposes and to improve the quality of our services.',
     cookies: 'Cookies',
     cookiesText1:
       'This website may use cookies to improve user experience and analyze site traffic. By continuing to browse this site, you accept the use of cookies.',
@@ -40,14 +40,14 @@ const translations = {
       'You can configure your browser to refuse cookies, but this may affect the functionality of certain parts of the site.',
     liability: 'Limitation of Liability',
     liabilityText1:
-      "BlueHive Digital Solutions Sàrl cannot be held responsible for direct or indirect damage caused to the user's equipment when accessing the site, resulting either from the use of equipment that does not meet the specifications indicated, or from the appearance of a bug or incompatibility.",
+      "BlueHive Digital Solutions LLC cannot be held responsible for direct or indirect damage caused to the user's equipment when accessing the site, resulting either from the use of equipment that does not meet the specifications indicated, or from the appearance of a bug or incompatibility.",
     liabilityText2:
-      'BlueHive Digital Solutions Sàrl cannot also be held responsible for indirect damage (such as loss of market or loss of opportunity) resulting from the use of the site.',
+      'BlueHive Digital Solutions LLC cannot also be held responsible for indirect damage (such as loss of market or loss of opportunity) resulting from the use of the site.',
     liabilityText3:
-      'Interactive spaces (contact forms, comments) are available to users. BlueHive Digital Solutions Sàrl reserves the right to delete, without prior notice, any content posted in this space that would contravene applicable law in Switzerland, in particular provisions relating to data protection.',
+      'Interactive spaces (contact forms, comments) are available to users. BlueHive Digital Solutions LLC reserves the right to delete, without prior notice, any content posted in this space that would contravene applicable law in Switzerland, in particular provisions relating to data protection.',
     externalLinks: 'External Links',
     externalLinksText:
-      'This website may contain links to external websites. BlueHive Digital Solutions Sàrl has no control over these external sites and cannot be held responsible for their content, privacy policies, or practices.',
+      'This website may contain links to external websites. BlueHive Digital Solutions LLC has no control over these external sites and cannot be held responsible for their content, privacy policies, or practices.',
     applicableLaw: 'Applicable Law',
     applicableLawText:
       'These terms and conditions are governed by Swiss law. Any dispute relating to the use of this site shall be subject to the exclusive jurisdiction of the courts of Geneva, Switzerland.',
@@ -72,16 +72,16 @@ const translations = {
     hostingProvider: 'Hébergeur :',
     intellectualProperty: 'Propriété intellectuelle',
     ipText1:
-      "L'ensemble du contenu de ce site, y compris mais sans s'y limiter, les textes, images, graphiques, logos, vidéos et logiciels, est la propriété exclusive de BlueHive Digital Solutions Sàrl, sauf indication contraire. Tous droits réservés.",
+      "L'ensemble du contenu de ce site, y compris mais sans s'y limiter, les textes, images, graphiques, logos, vidéos et logiciels, est la propriété exclusive de BlueHive Digital Solutions LLC, sauf indication contraire. Tous droits réservés.",
     ipText2:
-      'Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de BlueHive Digital Solutions Sàrl.',
+      'Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de BlueHive Digital Solutions LLC.',
     ipText3:
       "L'utilisation non autorisée du site ou de tout son contenu donnera lieu à des poursuites judiciaires. Il en va de même pour les bases de données apparaissant sur le site web, qui sont protégées par les dispositions de la loi fédérale suisse sur le droit d'auteur et les droits voisins.",
     dataProtection: 'Protection des données personnelles',
     dataProtectionText1:
       "Conformément à la loi fédérale suisse sur la protection des données (LPD), vous avez le droit d'accéder, de rectifier et de supprimer les données vous concernant. Vous pouvez exercer ce droit en nous contactant à :",
     dataProtectionText2:
-      "Les informations personnelles collectées sur ce site sont destinées à l'usage de BlueHive Digital Solutions Sàrl et ne seront pas communiquées à des tiers. Ces informations peuvent être utilisées à des fins statistiques et pour améliorer la qualité de nos services.",
+      "Les informations personnelles collectées sur ce site sont destinées à l'usage de BlueHive Digital Solutions LLC et ne seront pas communiquées à des tiers. Ces informations peuvent être utilisées à des fins statistiques et pour améliorer la qualité de nos services.",
     cookies: 'Cookies',
     cookiesText1:
       "Ce site peut utiliser des cookies pour améliorer l'expérience utilisateur et analyser le trafic du site. En continuant à naviguer sur ce site, vous acceptez l'utilisation de cookies.",
@@ -89,14 +89,14 @@ const translations = {
       'Vous pouvez configurer votre navigateur pour refuser les cookies, mais cela peut affecter le fonctionnement de certaines parties du site.',
     liability: 'Limitation de responsabilité',
     liabilityText1:
-      "BlueHive Digital Solutions Sàrl ne peut être tenue responsable des dommages directs ou indirects causés à l'équipement de l'utilisateur lors de l'accès au site, résultant soit de l'utilisation d'un équipement ne répondant pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.",
+      "BlueHive Digital Solutions LLC ne peut être tenue responsable des dommages directs ou indirects causés à l'équipement de l'utilisateur lors de l'accès au site, résultant soit de l'utilisation d'un équipement ne répondant pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.",
     liabilityText2:
-      "BlueHive Digital Solutions Sàrl ne peut également être tenue responsable des dommages indirects (tels que perte de marché ou perte d'opportunité) résultant de l'utilisation du site.",
+      "BlueHive Digital Solutions LLC ne peut également être tenue responsable des dommages indirects (tels que perte de marché ou perte d'opportunité) résultant de l'utilisation du site.",
     liabilityText3:
-      'Des espaces interactifs (formulaires de contact, commentaires) sont disponibles aux utilisateurs. BlueHive Digital Solutions Sàrl se réserve le droit de supprimer, sans préavis, tout contenu publié dans cet espace qui contreviendrait à la législation applicable en Suisse, en particulier les dispositions relatives à la protection des données.',
+      'Des espaces interactifs (formulaires de contact, commentaires) sont disponibles aux utilisateurs. BlueHive Digital Solutions LLC se réserve le droit de supprimer, sans préavis, tout contenu publié dans cet espace qui contreviendrait à la législation applicable en Suisse, en particulier les dispositions relatives à la protection des données.',
     externalLinks: 'Liens externes',
     externalLinksText:
-      "Ce site peut contenir des liens vers des sites web externes. BlueHive Digital Solutions Sàrl n'a aucun contrôle sur ces sites externes et ne peut être tenue responsable de leur contenu, de leurs politiques de confidentialité ou de leurs pratiques.",
+      "Ce site peut contenir des liens vers des sites web externes. BlueHive Digital Solutions LLC n'a aucun contrôle sur ces sites externes et ne peut être tenue responsable de leur contenu, de leurs politiques de confidentialité ou de leurs pratiques.",
     applicableLaw: 'Droit applicable',
     applicableLawText:
       "Ces conditions générales sont régies par le droit suisse. Tout litige relatif à l'utilisation de ce site relève de la compétence exclusive des tribunaux de Genève, Suisse.",
@@ -131,7 +131,7 @@ export default async function LegalNoticePage({ params }: Props) {
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">1. {t.siteEditor}</h2>
           <p>{t.publishedBy}</p>
           <address className="not-italic mt-2">
-            <p className="font-semibold">BlueHive Digital Solutions Sàrl</p>
+            <p className="font-semibold">BlueHive Digital Solutions LLC</p>
             <p>20, chemin Michée-Chauderon</p>
             <p>CH-1203 Genève</p>
             <p>Switzerland</p>

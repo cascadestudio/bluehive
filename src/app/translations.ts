@@ -38,8 +38,8 @@ export const translations = {
       title: 'ABOUT BLUEHIVE',
       introText:
         'BlueHive Digital Solutions designs, builds, and maintains tailored industrial IoT solutions for sectors such as water, wastewater, environment, recycling, mining, and aggregates. We transform data from machines, vibration sensors, and cameras into actionable insights through advanced analytics, machine learning, and computer vision. These insights are delivered via dashboards, monitoring, alerting, and reporting tools, helping stakeholders improve efficiency, reliability, and sustainability. Backed by strong academic and industry partnerships, our multidisciplinary team ensures solutions that are both robust and future-ready.',
-      coFounderCEO: 'Co-Founder & CEO',
-      coFounderCTO: 'Co-Founder & CTO',
+      coFounderCEO: 'CEO and founder',
+      coFounderCTO: 'Senior R&D Engineer',
       vincentDescription:
         'Vincent combines a background in environmental engineering and information technology with experience in global IT firms and in product management for asset performance management. He has created and scaled software platforms for utilities and is now excited to drive the growth of his own company. Curious, innovative, and persevering, he is motivated by transforming new ideas into tangible solutions.',
       patrickDescription:
