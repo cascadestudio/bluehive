@@ -63,14 +63,16 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
   return (
     <header className="fixed top-4 z-50 px-4 md:px-8 w-full">
       <div
-        className={`py-4 md:py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl transition-[max-height] duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-[800px]' : 'max-h-[64px]'
+        className={`py-4 md:py-5 bg-[#1e1e1e99] backdrop-blur-[5px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] rounded-xl lg:transition-none transition-[max-height] duration-300 ease-in-out ${
+          isMobileMenuOpen
+            ? 'max-h-[800px] md:max-h-[800px] lg:max-h-none'
+            : 'max-h-[64px] md:max-h-[76px] lg:max-h-none'
         }`}
       >
         {/* Desktop & Mobile Header Bar */}
         <div className="grid grid-cols-12 gap-2 md:gap-5 items-center">
           {/* Logo */}
-          <div className="col-span-6 md:col-span-3 flex items-center justify-start ml-3 md:ml-7">
+          <div className="col-span-6 lg:col-span-3 flex items-center justify-start ml-3 md:ml-7">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="cursor-pointer"
@@ -87,50 +89,50 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block md:col-span-3 xl:col-span-4"></div>
+          <div className="hidden lg:block lg:col-span-3 xl:col-span-4"></div>
 
-          <div className="hidden md:flex md:col-span-1 items-center">
+          <div className="hidden lg:flex lg:col-span-1 items-center">
             <button
               onClick={() => scrollToSection('projects')}
-              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="font-semibold text-white lg:text-sm xl:text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               {t.projects}
             </button>
           </div>
 
-          <div className="hidden md:flex md:col-span-1 items-center">
+          <div className="hidden lg:flex lg:col-span-1 items-center">
             <button
               onClick={() => scrollToSection('services')}
-              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="font-semibold text-white lg:text-sm xl:text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               {t.services}
             </button>
           </div>
 
-          <div className="hidden md:flex md:col-span-1 items-center">
+          <div className="hidden lg:flex lg:col-span-1 items-center">
             <button
               onClick={() => scrollToSection('about')}
-              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="font-semibold text-white lg:text-sm xl:text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               {t.about}
             </button>
           </div>
 
-          <div className="hidden md:flex md:col-span-1 items-center">
+          <div className="hidden lg:flex lg:col-span-1 items-center">
             <button
               onClick={() => scrollToSection('contact')}
-              className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="font-semibold text-white lg:text-sm xl:text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
               {t.contact}
             </button>
           </div>
 
-          <div className="hidden md:flex  lg:col-span-2 xl:col-span-1 items-center">
+          <div className="hidden lg:flex lg:col-span-2 xl:col-span-1 items-center">
             {/* Language Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
+                className="flex items-center font-semibold text-white lg:text-sm xl:text-base hover:opacity-80 transition-opacity cursor-pointer"
               >
                 {selectedLanguage}
                 <ChevronDown className="text-white" />
@@ -155,7 +157,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
           </div>
 
           {/* Mobile Burger Menu Button */}
-          <div className="col-span-6 md:hidden flex items-center justify-end mr-4">
+          <div className="col-span-6 md:col-span-6 lg:hidden flex items-center justify-end mr-4">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white p-2 relative w-6 h-5"
@@ -177,7 +179,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
 
         {/* Mobile Menu */}
         <nav
-          className={`md:hidden mt-4 px-4 transition-[max-height,opacity] duration-300 ease-in-out ${
+          className={`lg:hidden mt-4 px-4 transition-[max-height,opacity] duration-300 ease-in-out ${
             isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 mt-0'
           }`}
         >
