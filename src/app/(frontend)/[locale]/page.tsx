@@ -1,4 +1,3 @@
-import { headers as getHeaders } from 'next/headers.js'
 import { getPayload } from 'payload'
 import React from 'react'
 import type { Project, Service } from '@/payload-types'
@@ -34,8 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getSelectedProjects(locale: string): Promise<Project[]> {
-  const headers = await getHeaders()
-  const payloadConfig = await config
+    const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
   const { docs: allProjects } = await payload.find({
@@ -60,7 +58,6 @@ async function getSelectedProjects(locale: string): Promise<Project[]> {
 }
 
 async function getServices(locale: string): Promise<Service[]> {
-  const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
