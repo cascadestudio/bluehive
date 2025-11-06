@@ -130,7 +130,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               </button>
 
               {isLanguageOpen && (
-                <div className="absolute top-full right-0 mt-1 w-[100px] bg-[#1e1e1e99] backdrop-blur-[5px] rounded-lg shadow-lg z-10">
+                <div className="absolute top-full mt-1 w-[100px] bg-[#1e1e1e] rounded-lg shadow-lg z-10">
                   {languages
                     .filter((language) => language.code !== currentLocale)
                     .map((language) => (
@@ -155,12 +155,12 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               aria-label={t.toggleMenu}
             >
               <span
-                className={`absolute left-0 w-full h-[2.5px] bg-brand-blue transition-all duration-300 ease-in-out origin-center ${
+                className={`absolute left-0 w-full h-[2px] bg-brand-blue transition-all duration-300 ease-in-out origin-center ${
                   isMobileMenuOpen ? 'rotate-45 top-1/2 -translate-y-1/2' : 'top-[4px]'
                 }`}
               />
               <span
-                className={`absolute left-0 w-full h-[2.5px] bg-brand-blue transition-all duration-300 ease-in-out origin-center ${
+                className={`absolute left-0 w-full h-[2px] bg-brand-blue transition-all duration-300 ease-in-out origin-center ${
                   isMobileMenuOpen ? '-rotate-45 top-1/2 -translate-y-1/2' : 'bottom-[4px]'
                 }`}
               />
@@ -170,34 +170,34 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pt-4 border-t border-white/20 space-y-4">
+          <nav className="md:hidden mt-4 px-4">
             <button
               onClick={() => scrollToSection('projects')}
-              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
             >
               {t.projects}
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="block w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
             >
               {t.services}
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="block w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
             >
               {t.about}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
+              className="block w-full text-left font-semibold text-white text-base py-3 hover:opacity-80 transition-opacity bg-transparent cursor-pointer border-b border-t border-brand-blue"
             >
               {t.contact}
             </button>
 
             {/* Mobile Language Dropdown */}
-            <div className="relative pt-2">
+            <div className="relative py-3 border-b border-t border-brand-blue">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
                 className="flex items-center font-semibold text-white text-base hover:opacity-80 transition-opacity cursor-pointer"
@@ -207,14 +207,14 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               </button>
 
               {isLanguageOpen && (
-                <div className="mt-2 w-full bg-[#1e1e1e99] backdrop-blur-[5px] rounded-lg shadow-lg">
+                <div className="mt-2 absolute bg-[#1e1e1e] backdrop-blur-[5px] rounded-lg shadow-lg">
                   {languages
                     .filter((language) => language.code !== currentLocale)
                     .map((language) => (
                       <button
                         key={language.code}
                         onClick={() => handleLanguageChange(language.code)}
-                        className="w-full px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
+                        className="w-full text-base px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
                       >
                         {language.code === 'fr' ? t.french : t.english}
                       </button>
