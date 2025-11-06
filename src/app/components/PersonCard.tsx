@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
+import { translations } from '@/app/translations'
+import type { Locale } from '@/app/translations'
 
 interface PersonCardProps {
   image: string
@@ -7,6 +9,7 @@ interface PersonCardProps {
   position: string
   description: string
   linkedinUrl?: string
+  locale?: Locale
 }
 
 export const PersonCard: React.FC<PersonCardProps> = ({
@@ -15,7 +18,11 @@ export const PersonCard: React.FC<PersonCardProps> = ({
   position,
   description,
   linkedinUrl,
+  locale = 'en',
 }) => {
+  const t = translations[locale].about
+  const linkedinLabel = t.linkedinProfile.replace('{name}', name)
+
   return (
     <div className="flex flex-col">
       {/* Image */}
@@ -45,7 +52,7 @@ export const PersonCard: React.FC<PersonCardProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-brand-blue hover:text-brand-dark-blue transition-colors"
-          aria-label={`Visit ${name}'s LinkedIn profile`}
+          aria-label={linkedinLabel}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

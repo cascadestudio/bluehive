@@ -2,12 +2,16 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { translations } from '@/app/translations'
+import type { Locale } from '@/app/translations'
 
 interface HeroSectionProps {
-  // Props can be added here in the future
+  locale?: Locale
 }
 
-export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
+export const HeroSection = ({ locale = 'en' }: HeroSectionProps): React.JSX.Element => {
+  const t = translations[locale].hero
+
   return (
     <section className="relative w-full md:h-screen overflow-hidden" aria-label="Hero section">
       {/* Background Image avec overlay */}
@@ -22,7 +26,7 @@ export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
           quality={85}
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/60 to-black/60" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Content */}
@@ -30,15 +34,11 @@ export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
         <div className="mt-28 md:mt-0 brand-grid gap-5">
           <div className="col-span-12 md:col-start-3 md:col-span-8 lg:col-start-3 lg:col-span-6 flex flex-col">
             <h1 className="mb-6 font-bold text-white text-3xl md:text-4xl lg:text-5xl">
-              Where advanced digital technologies meet real-world assets
+              {t.title}
             </h1>
 
             <p className="leading-snug mb-8 font-semibold text-white text-lg md:text-xl lg:text-2xl">
-              We engineer tailored industrial IoT solutions for sectors such as utilities,
-              environment, and natural resources. We transform data from machines, sensors, and
-              cameras into actionable insights with AI-powered analytics, machine learning, and
-              computer vision — delivering intelligence that drives smarter, faster, and more
-              sustainable decisions.
+              {t.description}
             </p>
 
             <button
@@ -52,9 +52,9 @@ export const HeroSection = ({}: HeroSectionProps): React.JSX.Element => {
                 }
               }}
               className="cursor-pointer self-end md:self-start inline-flex items-center justify-center gap-1 px-6 py-3 bg-brand-blue rounded-lg hover:opacity-90 transition-opacity"
-              aria-label="Scroll to contact section"
+              aria-label={t.scrollToContact}
             >
-              <span className="font-bold text-white text-base">Contact us</span>
+              <span className="font-bold text-white text-base">{t.contactButton}</span>
             </button>
           </div>
         </div>

@@ -89,6 +89,8 @@ export const metadata = {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
+  // Default to 'en' if locale cannot be determined from children
+  // The actual locale will be handled by client components via pathname
   return (
     <html lang="en" className={`h-full ${nunitoSans.variable} ${robotoMono.variable}`}>
       <body className="h-full m-0 font-base-text antialiased">

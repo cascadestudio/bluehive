@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import { ChevronDown } from './ChevronDown'
+import { translations } from '@/app/translations'
+import type { Locale } from '@/app/translations'
 
 interface HeaderProps {
   className?: string
@@ -16,15 +18,16 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Détecter la locale actuelle depuis l'URL
-  const currentLocale = pathname.split('/')[1] || 'en'
-  const selectedLanguage = currentLocale === 'fr' ? 'French' : 'English'
+  const currentLocale = (pathname.split('/')[1] || 'en') as Locale
+  const t = translations[currentLocale].header
+  const selectedLanguage = currentLocale === 'fr' ? t.french : t.english
 
   const languages = [
-    { code: 'en', label: 'English' },
-    { code: 'fr', label: 'French' },
+    { code: 'en' as Locale, label: t.english },
+    { code: 'fr' as Locale, label: t.french },
   ]
 
-  const handleLanguageChange = (localeCode: string) => {
+  const handleLanguageChange = (localeCode: Locale) => {
     setIsLanguageOpen(false)
     // Replace the current locale in the pathname with the new locale
     const pathSegments = pathname.split('/').filter(Boolean)
@@ -64,7 +67,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="cursor-pointer"
-              aria-label="Scroll to top"
+              aria-label={t.scrollToTop}
             >
               <Image
                 className="relative w-[120px] md:w-[146.27px] h-auto aspect-[3.75]"
@@ -84,7 +87,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               onClick={() => scrollToSection('projects')}
               className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              Projects
+              {t.projects}
             </button>
           </div>
 
@@ -93,7 +96,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               onClick={() => scrollToSection('services')}
               className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              Services
+              {t.services}
             </button>
           </div>
 
@@ -102,7 +105,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               onClick={() => scrollToSection('about')}
               className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              About
+              {t.about}
             </button>
           </div>
 
@@ -111,7 +114,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               onClick={() => scrollToSection('contact')}
               className="font-semibold text-white text-base hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              Contact
+              {t.contact}
             </button>
           </div>
 
@@ -136,7 +139,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
                         onClick={() => handleLanguageChange(language.code)}
                         className="w-full px-3 py-2  font-semibold text-white  first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
                       >
-                        {language.label}
+                        {language.code === 'fr' ? t.french : t.english}
                       </button>
                     ))}
                 </div>
@@ -149,7 +152,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white p-2 relative w-6 h-5"
-              aria-label="Toggle menu"
+              aria-label={t.toggleMenu}
             >
               <span
                 className={`absolute left-0 w-full h-[2.5px] bg-brand-blue transition-all duration-300 ease-in-out origin-center ${
@@ -172,25 +175,25 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
               onClick={() => scrollToSection('projects')}
               className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              Projects
+              {t.projects}
             </button>
             <button
               onClick={() => scrollToSection('services')}
               className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              Services
+              {t.services}
             </button>
             <button
               onClick={() => scrollToSection('about')}
               className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              About
+              {t.about}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="block w-full text-left font-semibold text-white text-base py-2 hover:opacity-80 transition-opacity bg-transparent border-none cursor-pointer"
             >
-              Contact
+              {t.contact}
             </button>
 
             {/* Mobile Language Dropdown */}
@@ -213,7 +216,7 @@ export const Header = ({ className = '' }: HeaderProps): React.JSX.Element => {
                         onClick={() => handleLanguageChange(language.code)}
                         className="w-full px-3 py-2 text-left font-semibold text-white first:rounded-t-lg last:rounded-b-lg hover:opacity-80 transition-opacity cursor-pointer"
                       >
-                        {language.label}
+                        {language.code === 'fr' ? t.french : t.english}
                       </button>
                     ))}
                 </div>

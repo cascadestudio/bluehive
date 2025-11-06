@@ -1,53 +1,60 @@
+'use client'
+
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import { PersonCard } from './PersonCard'
 import { SectionHeader } from './SectionHeader'
 import Image from 'next/image'
+import { translations } from '@/app/translations'
+import type { Locale } from '@/app/translations'
 
 export const About: React.FC = () => {
+  const pathname = usePathname()
+  const currentLocale = (pathname.split('/')[1] || 'en') as Locale
+  const t = translations[currentLocale].about
+
   return (
     <section id="about" className="section-border mb-20 md:mb-0">
-      <SectionHeader
-        title="ABOUT BLUEHIVE"
-        introText="BlueHive Digital Solutions designs, builds, and maintains tailored industrial IoT solutions for sectors such as water, wastewater, environment, recycling, mining, and aggregates. We transform data from machines, vibration sensors, and cameras into actionable insights through advanced analytics, machine learning, and computer vision. These insights are delivered via dashboards, monitoring, alerting, and reporting tools, helping stakeholders improve efficiency, reliability, and sustainability. Backed by strong academic and industry partnerships, our multidisciplinary team ensures solutions that are both robust and future-ready."
-      />
+      <SectionHeader title={t.title} introText={t.introText} />
 
       <div className="brand-grid gap-y-16! md:gap-y-0!">
         <div className="col-span-12 md:col-span-6 lg:col-span-3">
           <PersonCard
             image="/images/vincent-mottier.jpg"
             name="Vincent Mottier"
-            position="Co-Founder & CEO"
-            description="Vincent combines a background in environmental engineering and information technology with experience in global IT firms and in product management for asset performance management. He has created and scaled software platforms for utilities and is now excited to drive the growth of his own company. Curious, innovative, and persevering, he is motivated by transforming new ideas into tangible solutions."
+            position={t.coFounderCEO}
+            description={t.vincentDescription}
             linkedinUrl="https://linkedin.com/in/vincent-mottier"
+            locale={currentLocale}
           />
         </div>
         <div className="col-span-12 md:col-span-6 lg:col-span-3">
           <PersonCard
             image="/images/patrick-zhao.jpg"
             name="Patrick Zhao"
-            position="Co-Founder & CTO"
-            description="Patrick is a software engineer with a background in microengineering and robotics. He specializes in computer vision, machine learning, and robotics, with hands-on experience in Python, C++, Rust, and JavaScript. At BlueHive, he develops AI vision systems for bulk material monitoring and leads initiatives in model training, system integration, and robotics innovation. Curious and inventive, he is driven by solving complex problems and advancing new technologies.
-"
+            position={t.coFounderCTO}
+            description={t.patrickDescription}
             linkedinUrl="https://linkedin.com/in/patrick-zhao"
+            locale={currentLocale}
           />
         </div>
         <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
-          <h3 className="font-tag text-base! mb-3">Collaborators</h3>
+          <h3 className="font-tag text-base! mb-3">{t.collaborators}</h3>
           <div>
             <p className="font-bold">Mohammed Amin Belarbi</p>
-            <p className="text-sm">Senior data scientist</p>
+            <p className="text-sm">{t.seniorDataScientist}</p>
           </div>
           <div>
             <p className="font-bold">Alaedinne Hmida </p>
-            <p className="text-sm">Software engineer – Full-stack developper</p>
+            <p className="text-sm">{t.softwareEngineer}</p>
           </div>
           <div>
             <p className="font-bold">Mohammed Amin Belarbi</p>
-            <p className="text-sm">Technical collaborator – Software and ML</p>
+            <p className="text-sm">{t.technicalCollaborator}</p>
           </div>
         </div>
         <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
-          <h3 className="font-tag text-base! mb-3">Partners</h3>
+          <h3 className="font-tag text-base! mb-3">{t.partners}</h3>
           <Image
             src="/logos/arcanite.png"
             alt="Arcanite partner logo"

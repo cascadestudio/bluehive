@@ -1,23 +1,29 @@
+'use client'
+
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import type { Project } from '@/payload-types'
 import { SectionHeader } from './SectionHeader'
+import { translations } from '@/app/translations'
+import type { Locale } from '@/app/translations'
 
 interface SelectedProjectsProps {
   projects: Project[]
 }
 
 export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX.Element | null => {
+  const pathname = usePathname()
+  const currentLocale = (pathname.split('/')[1] || 'en') as Locale
+  const t = translations[currentLocale].projects
+
   if (!projects || projects.length === 0) {
     return null
   }
 
   return (
     <section id="projects" className="mt-20">
-      <SectionHeader
-        title="SELECTED PROJECTS"
-        introText="Here are examples of how we turn complex industrial challenges into reliable, data-driven solutions, built in close collaboration with our clients."
-      />
+      <SectionHeader title={t.title} introText={t.introText} />
 
       <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5 gap-16">
         {projects.map((project, index) => {
@@ -39,7 +45,7 @@ export const SelectedProjects = ({ projects }: SelectedProjectsProps): React.JSX
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500">No Image</span>
+                    <span className="text-gray-500">{t.noImage}</span>
                   </div>
                 )}
               </div>

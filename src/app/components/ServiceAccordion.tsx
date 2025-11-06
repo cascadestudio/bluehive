@@ -3,13 +3,17 @@
 import React, { useState } from 'react'
 import type { Service } from '@/payload-types'
 import Image from 'next/image'
+import { translations } from '@/app/translations'
+import type { Locale } from '@/app/translations'
 
 interface ServiceAccordionProps {
   services: Service[]
+  locale?: Locale
 }
 
-export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) => {
+export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services, locale = 'en' }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const t = translations[locale].services
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -76,7 +80,7 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services }) 
                       {/* Use Cases */}
                       {service.useCases && service.useCases.length > 0 && (
                         <div>
-                          <h4 className="font-tag mb-1">Use Cases</h4>
+                          <h4 className="font-tag mb-1">{t.useCases}</h4>
                           <div className="grid grid-cols-1 md:grid-cols-6 md:gap-x-8 gap-y-1 md:gap-y-2 border-t border-brand-blue pt-1">
                             {service.useCases.map((useCase, ucIndex) => (
                               <div

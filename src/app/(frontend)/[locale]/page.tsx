@@ -122,7 +122,7 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <HeroSection />
+      <HeroSection locale={locale as 'en' | 'fr'} />
       <div className="flex flex-col grow gap-y-16 md:gap-y-32 px-4 md:px-8">
         <SelectedProjects projects={projects} />
         <OurServices services={services} />
