@@ -68,11 +68,11 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services, lo
 
                     {/* Description + Use Cases - 6 columns */}
                     <div
-                      className={
+                      className={`flex flex-col justify-between ${
                         service.image && typeof service.image === 'object'
                           ? 'md:col-span-6'
                           : 'md:col-span-12'
-                      }
+                      }`}
                     >
                       {/* Description */}
                       <div className="mb-8">
