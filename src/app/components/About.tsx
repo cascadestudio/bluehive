@@ -53,10 +53,6 @@ export const About: React.FC = () => {
             <p className="font-bold">Alaedinne Hmida </p>
             <p className="text-sm">{t.softwareEngineer}</p>
           </div>
-          <div>
-            <p className="font-bold">Grégoire Mottier</p>
-            <p className="text-sm">{t.technicalCollaborator}</p>
-          </div>
         </div>
       </div>
     </section>
