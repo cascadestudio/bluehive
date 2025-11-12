@@ -44,6 +44,8 @@ export const translations = {
         'Vincent combines a background in environmental engineering and information technology with experience in global IT firms and in product management for asset performance management. He has created and scaled software platforms for utilities and is now excited to drive the growth of his own company. Curious, innovative, and persevering, he is motivated by transforming new ideas into tangible solutions.',
       patrickDescription:
         'Patrick is a software engineer with a background in microengineering and robotics. He specializes in computer vision, machine learning, and robotics, with hands-on experience in Python, C++, Rust, and JavaScript. At BlueHive, he develops AI vision systems for bulk material monitoring and leads initiatives in model training, system integration, and robotics innovation. Curious and inventive, he is driven by solving complex problems and advancing new technologies.',
+      gregoireDescription:
+        'Gregoire is a software engineer with a background in microengineering and robotics. He specializes in computer vision, machine learning, and robotics, with hands-on experience in Python, C++, Rust, and JavaScript. At BlueHive, he develops AI vision systems for bulk material monitoring and leads initiatives in model training, system integration, and robotics innovation. Curious and inventive, he is driven by solving complex problems and advancing new technologies.',
       collaborators: 'Collaborators',
       partners: 'Partners',
       seniorDataScientist: 'Senior data scientist',
@@ -119,6 +121,8 @@ export const translations = {
         "Vincent combine une formation en génie de l'environnement et en technologies de l'information avec une expérience dans des entreprises informatiques mondiales et en gestion de produits pour la gestion de la performance des actifs. Il a créé et développé des plateformes logicielles pour les services publics et est maintenant enthousiaste à l'idée de stimuler la croissance de sa propre entreprise. Curieux, innovant et persévérant, il est motivé par la transformation de nouvelles idées en solutions tangibles.",
       patrickDescription:
         "Patrick est un ingénieur logiciel avec une formation en micro-ingénierie et robotique. Il se spécialise dans la vision par ordinateur, l'apprentissage automatique et la robotique, avec une expérience pratique en Python, C++, Rust et JavaScript. Chez BlueHive, il développe des systèmes de vision IA pour la surveillance des matériaux en vrac et dirige des initiatives en formation de modèles, intégration de systèmes et innovation robotique. Curieux et inventif, il est motivé par la résolution de problèmes complexes et l'avancement de nouvelles technologies.",
+      gregoireDescription:
+        "Gregoire est un ingénieur logiciel avec une formation en micro-ingénierie et robotique. Il se spécialise dans la vision par ordinateur, l'apprentissage automatique et la robotique, avec une expérience pratique en Python, C++, Rust et JavaScript. Chez BlueHive, il développe des systèmes de vision IA pour la surveillance des matériaux en vrac et dirige des initiatives en formation de modèles, intégration de systèmes et innovation robotique. Curieux et inventif, il est motivé par la résolution de problèmes complexes et l'avancement de nouvelles technologies.",
       collaborators: 'Collaborateurs',
       partners: 'Partenaires',
       seniorDataScientist: 'Data scientist senior',

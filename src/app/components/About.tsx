@@ -4,7 +4,6 @@ import React from 'react'
 import { usePathname } from 'next/navigation'
 import { PersonCard } from './PersonCard'
 import { SectionHeader } from './SectionHeader'
-import Image from 'next/image'
 import { translations } from '@/app/translations'
 import type { Locale } from '@/app/translations'
 
@@ -24,7 +23,7 @@ export const About: React.FC = () => {
             name="Vincent Mottier"
             position={t.coFounderCEO}
             description={t.vincentDescription}
-            linkedinUrl="https://linkedin.com/in/vincent-mottier"
+            linkedinUrl="https://www.linkedin.com/in/vmottier/"
             locale={currentLocale}
           />
         </div>
@@ -34,16 +33,22 @@ export const About: React.FC = () => {
             name="Patrick (Yupeng) Zhao"
             position={t.coFounderCTO}
             description={t.patrickDescription}
-            linkedinUrl="https://linkedin.com/in/patrick-zhao"
+            linkedinUrl="https://www.linkedin.com/in/zhaopatrick/"
             locale={currentLocale}
+          />
+        </div>
+        <div className="col-span-12 md:col-span-6 lg:col-span-3">
+          <PersonCard
+            image="/images/Grégoire.jpg"
+            name="Grégoire Mottier"
+            position={t.seniorDataScientist}
+            description={t.gregoireDescription}
+            locale={currentLocale}
+            linkedinUrl="https://ch.linkedin.com/in/gmottier"
           />
         </div>
         <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
           <h3 className="font-tag text-base! mb-3">{t.collaborators}</h3>
-          <div>
-            <p className="font-bold">Mohammed Amin Belarbi</p>
-            <p className="text-sm">{t.seniorDataScientist}</p>
-          </div>
           <div>
             <p className="font-bold">Alaedinne Hmida </p>
             <p className="text-sm">{t.softwareEngineer}</p>
@@ -52,11 +57,6 @@ export const About: React.FC = () => {
             <p className="font-bold">Grégoire Mottier</p>
             <p className="text-sm">{t.technicalCollaborator}</p>
           </div>
-        </div>
-        <div className="col-span-12 md:col-span-6 lg:col-span-3 space-y-4">
-          <h3 className="font-tag text-base! mb-3">{t.partners}</h3>
-          <Image src="/logos/arcanite.png" alt="Arcanite partner logo" width={140} height={30} />
-          <Image src="/logos/ei3.svg" alt="EI3 partner logo" width={50} height={40} />
         </div>
       </div>
     </section>
