@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { translations } from '@/app/translations'
 import type { Locale } from '@/app/translations'
 
@@ -16,15 +15,17 @@ export const HeroSection = ({ locale = 'en' }: HeroSectionProps): React.JSX.Elem
     <section className="relative w-full md:h-screen overflow-hidden" aria-label="Hero section">
       {/* Background Image avec overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero.jpg"
-          alt="BlueHive Digital Solutions - Industrial IoT Solutions"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          quality={85}
-        />
+        <video
+          className="h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          aria-label="BlueHive Digital Solutions - Industrial IoT Solutions"
+        >
+          <source src="/videos/hero-web.mp4" type="video/mp4" />
+        </video>
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-black/60" />
       </div>
