@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           {/* Contact Us */}
           <div className="col-span-12 sm:col-span-6 md:col-span-2">
             <h3 className="font-tag mb-4">{t.contactUs}</h3>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-1 text-sm">
               <p>
                 <a
                   href="mailto:contact@bluehive.ch"
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
                 href="https://maps.google.com/?q=20+chemin+Michée-Chauderon+1203+Genève"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-brand-blue transition-colors"
+                className="hover:text-brand-blue transition-colors space-y-1"
               >
                 <p>BlueHive Digital Solutions LLC,</p>
                 <p>20, chemin Michée-Chauderon,</p>
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
                 href="https://maps.google.com/?q=rue+de+Lyon+77+1203+Genève"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-brand-blue transition-colors"
+                className="hover:text-brand-blue transition-colors space-y-1"
               >
                 <p>BlueHive Digital Solutions LLC,</p>
                 <p>rue de Lyon 77,</p>
@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
           {/* Sitemap */}
           <div className="col-span-12 sm:col-span-6 md:col-span-2">
             <h3 className="font-tag mb-4">{t.sitemap}</h3>
-            <nav className="space-y-2 text-sm">
+            <nav className="text-sm space-y-1">
               <p>
                 <a href="#projects" className="hover:text-brand-blue transition-colors">
                   {t.projects}
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
           {/* Legal */}
           <div className="col-span-12 sm:col-span-6 md:col-span-2">
             <h3 className="font-tag mb-4">{t.legal}</h3>
-            <div className="text-sm">
+            <div className="text-sm space-y-1">
               <p>
                 <LegalNoticeLink />
               </p>
