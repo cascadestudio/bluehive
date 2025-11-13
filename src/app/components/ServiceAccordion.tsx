@@ -51,7 +51,7 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services, lo
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6">
                     {/* Image - 6 columns */}
                     {service.image && typeof service.image === 'object' && (
-                      <div className="md:col-span-6">
+                      <div className="md:col-span-5">
                         <div className="w-full aspect-680/510 overflow-hidden">
                           <Image
                             src={service.image.url || ''}
@@ -70,7 +70,7 @@ export const ServiceAccordion: React.FC<ServiceAccordionProps> = ({ services, lo
                     <div
                       className={`flex flex-col justify-between ${
                         service.image && typeof service.image === 'object'
-                          ? 'md:col-span-6'
+                          ? 'md:col-span-7'
                           : 'md:col-span-12'
                       }`}
                     >
